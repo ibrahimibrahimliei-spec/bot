@@ -38,14 +38,14 @@ from telegram.ext import (
 
 TOKEN = "8652179755:AAHIDbbPgfJg4PwMbEA_mpNtblcxZRpUyn0"
 DATA_DIR = os.environ.get("DATA_DIR", ".")
-   os.makedirs(DATA_DIR, exist_ok=True)
-   DATA_FILE = os.path.join(DATA_DIR, "questions_data.json")
-   DB_FILE = os.path.join(DATA_DIR, "bot_data.db")
-   
-   # İlk işə salımda repo-dakı default questions_data.json-u volume-ə kopyala
-   if not os.path.exists(DATA_FILE) and os.path.exists("questions_data.json"):
-       import shutil
-       shutil.copy("questions_data.json", DATA_FILE)
+os.makedirs(DATA_DIR, exist_ok=True)
+DATA_FILE = os.path.join(DATA_DIR, "questions_data.json")
+DB_FILE = os.path.join(DATA_DIR, "bot_data.db")
+
+# İlk işə salımda repo-dakı default questions_data.json-u volume-ə kopyala
+if not os.path.exists(DATA_FILE) and os.path.exists("questions_data.json"):
+    import shutil
+    shutil.copy("questions_data.json", DATA_FILE)
 # ⚠️  Buraya öz Telegram ID-nizi yazın!
 ADMIN_IDS = [1051646816]
 
