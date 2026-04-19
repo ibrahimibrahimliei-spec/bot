@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reklam</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src='//libtl.com/sdk.js' data-zone='10878049' data-sdk='show_10878049'></script>
+  <style>
+    body { margin: 0; background: #1a1a2e; display: flex; flex-direction: column;
+           align-items: center; justify-content: center; min-height: 100vh;
+           font-family: Arial, sans-serif; color: #fff; text-align: center; padding: 16px; box-sizing: border-box; }
+    .card { background: #16213e; border-radius: 16px; padding: 32px 24px; max-width: 360px; width: 100%; box-sizing: border-box; }
+    h2 { margin: 0 0 8px; font-size: 22px; }
+    p  { margin: 0 0 20px; color: #aaa; font-size: 14px; }
+    #adContainer { min-height: 200px; display: flex; align-items: center;
+                   justify-content: center; border: 1px dashed #444;
+                   border-radius: 8px; margin-bottom: 16px; color: #666; font-size: 13px; }
+    button { width: 100%; padding: 14px; border: none; border-radius: 10px;
+             color: #fff; font-size: 16px; cursor: pointer; margin-top: 8px; }
+    .btn-primary  { background: #0f3460; }
+    .btn-success  { background: #1a6640; font-size: 18px; font-weight: bold; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    #status { margin-top: 12px; font-size: 13px; color: #4ecca3; min-height: 18px; }
+    #countdown { font-size: 13px; color: #ff6b6b; margin-top: 8px; min-height: 18px; }
+    #closeBox { display: none; margin-top: 16px; padding: 16px; background: #1a6640; border-radius: 12px; }
+    #closeBox h3 { margin: 0 0 8px; font-size: 18px; }
+    #closeBox p  { margin: 0 0 12px; color: #d4f5e0; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>📢 Reklam</h2>
+    <p>Testi açmaq üçün reklamı izləyin</p>
+    <div id="adContainer">Reklam yüklənir...</div>
+    <button id="watchBtn" class="btn-primary" onclick="watchAd()">▶️ Reklamı İzlə</button>
+    <div id="status"></div>
+    <div id="countdown"></div>
+
+    <!-- Reklam bitdikdən sonra göstərilən əl ilə bağlama düyməsi.
+         tg.close() bütün klientlərdə avtomatik işləmir, ona görə əl ilə fallback. -->
+    <div id="closeBox">
+      <h3>✅ Reklam tamamlandı!</h3>
+      <p>Bota qayıtmaq üçün düyməni bas (avtomatik bağlanmasa).</p>
+      <button class="btn-success" onclick="forceClose()">⬅️ Bota Qayıt</button>
+    </div>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+
+    // Kontekst URL hash-dən gəlir: #ctx=start və ya #ctx=cont
+    const hash = window.location.hash.replace('#', '');
+    const params = new URLSearchParams(hash);
+    const ctx = params.get('ctx') || 'start';
+
+    let countdownTimer = null;
+    let signalSent = false;
+
+    function setStatus(msg) {
+      document.getElementById('status').textContent = msg;
+    }
+    function setCountdown(msg) {
+      document.getElementById('countdown').textContent = msg;
+    }
+
+    function sendSignal(reason) {
+      if (signalSent) return;
+      const payload = JSON.stringify({
+        type: 'ad_done',
+        ctx: ctx,
+        reason: reason,
+        ts: Date.now()
+      });
+      try {
+        tg.sendData(payload);
+        signalSent = true;
+      } catch (e) {
+        setStatus('❌ Bota siqnal göndərilə bilmədi: ' + e.message);
+      }
+    }
+
+    function showCloseBox() {
+      document.getElementById('closeBox').style.display = 'block';
+      document.getElementById('watchBtn').style.display = 'none';
+    }
+
+    function forceClose() {
+      // Əvvəlcə yenə siqnal göndər (təkrar zərərsizdir, bot dublikat qəbul edir)
+      sendSignal('manual_close');
+      // Sonra bağlamağa cəhd et
+      try {
+        tg.close();
+      } catch (e) {
+        // tg.close() işləmirsə, istifadəçiyə bildiriş ver
+        setStatus('Telegram pəncərəni avtomatik bağlamır. Sağ yuxarıdakı × ilə bağlayın.');
+      }
+    }
+
+    function watchAd() {
+      const btn = document.getElementById('watchBtn');
+      btn.disabled = true;
+      setStatus('Reklam başlayır...');
+
+      let waited = 0;
+      countdownTimer = setInterval(() => {
+        waited++;
+        setCountdown(`⏳ Reklam müddəti: ${waited}s...`);
+      }, 1000);
+
+      show_10878049().then(() => {
+        clearInterval(countdownTimer);
+        setStatus('');
+        setCountdown('');
+        // 1) Bota dərhal siqnal göndər (tg.close() işləməsə də bot artıq qəbul etmiş olur)
+        sendSignal('completed');
+        // 2) Avtomatik bağlanmaq üçün cəhd
+        setTimeout(() => {
+          try { tg.close(); } catch (e) {}
+          // 3) Əgər 1 saniyə sonra hələ açıqdırsa, manual düyməni göstər
+          setTimeout(showCloseBox, 1000);
+        }, 500);
+      }).catch(e => {
+        clearInterval(countdownTimer);
+        if (waited >= 5) {
+          setStatus('');
+          setCountdown('');
+          sendSignal('no_inventory');
+          setTimeout(() => {
+            try { tg.close(); } catch (e) {}
+            setTimeout(showCloseBox, 1000);
+          }, 500);
+        } else {
+          setStatus('⚠️ Reklam yüklənmədi. Bir az gözləyib yenə cəhd edin.');
+          setCountdown('');
+          btn.disabled = false;
+          btn.textContent = '▶️ Yenidən Cəhd Et';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
