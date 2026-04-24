@@ -2105,7 +2105,35 @@ def document_handler(update: Update, context: CallbackContext):
 
 
 def bulk_import_json(payload):
-    """JSON payload-dan sualları aktual DATA-ya əlavə et."""
+    """JSON payload-dan sualları aktual DATA-ya əlavə et.
+    Dəstəklənən formatlar:
+      1) {subject_id, topic_num, questions: [...]}  - klassik format
+      2) [{subject_id, topic_num, questions: [...]}, ...]  - list of payloads
+      3) [{q, answers, correct}, ...]  - sadəcə suallar (default fənnə gedir)
+    `correct` ya tam mətn, ya A-E hərfi ola bilər.
+    """
+    # Format 2 və ya 3 — list halı
+    if isinstance(payload, list):
+        if not payload:
+            return 0
+        # Hər element subject_id keysi varsa - format 2
+        if isinstance(payload[0], dict) and 'subject_id' in payload[0]:
+            total = 0
+            for item in payload:
+                total += _import_one_payload(item)
+            return total
+        # Yoxsa format 3 — sual siyahısıdır
+        return _import_one_payload({"subject_id": "adiak", "topic_num": 0, "questions": payload})
+
+    # Format 1 — dict
+    if isinstance(payload, dict):
+        return _import_one_payload(payload)
+
+    raise ValueError(f"Dəstəklənməyən JSON formatı: {type(payload).__name__}")
+
+
+def _import_one_payload(payload):
+    """Bir payload-u import edir."""
     sid = payload.get('subject_id')
     topic_num = payload.get('topic_num', 0)
     questions = payload.get('questions', [])
@@ -2124,15 +2152,21 @@ def bulk_import_json(payload):
     n = 0
     nxt = _next_qid()
     for q in questions:
-        if not q.get('q') or not q.get('answers') or not q.get('correct'):
+        if not q.get('q') or not q.get('answers'):
             continue
-        if q['correct'] not in q['answers']:
+        # `correct` A-E hərfi ola bilər — mətn olaraq çevir
+        correct = q.get('correct')
+        if isinstance(correct, str) and len(correct) == 1 and correct.upper() in "ABCDE":
+            idx = ord(correct.upper()) - ord('A')
+            if idx < len(q['answers']):
+                correct = q['answers'][idx]
+        if not correct or correct not in q['answers']:
             continue
         new_q = {
             "id": nxt,
             "q": q['q'],
             "answers": list(q['answers']),
-            "correct": q['correct']
+            "correct": correct
         }
         target_list.append(new_q)
         nxt += 1
@@ -2142,26 +2176,25 @@ def bulk_import_json(payload):
 
 
 def bulk_import_pdf(raw_bytes, default_subject_id="adiak", default_topic_num=0):
-    """PDF binary-dən ADİAK formatında parse et (aşağı/yuxarı kolon, • və √)."""
+    """PDF binary-dən ADİAK formatında parse et (• və √ markerli cavablar).
+    pypdf istifadə edir — sistem alətinə (pdftotext) ehtiyac yoxdur."""
     try:
-        import subprocess, tempfile
-    except Exception:
-        raise RuntimeError("subprocess available olmalıdır")
+        from pypdf import PdfReader
+    except ImportError:
+        try:
+            from PyPDF2 import PdfReader  # köhnə versiya fallback
+        except ImportError:
+            raise RuntimeError("pypdf kitabxanası yoxdur. requirements.txt-ə əlavə et: pypdf")
 
-    # pdftotext istifadə et
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tf:
-        tf.write(raw_bytes)
-        tmp_pdf = tf.name
-    tmp_txt = tmp_pdf + ".txt"
-    try:
-        subprocess.run(["pdftotext", "-layout", tmp_pdf, tmp_txt], check=True)
-        with open(tmp_txt, 'r', encoding='utf-8') as f:
-            text = f.read()
-    finally:
-        try: os.unlink(tmp_pdf)
-        except: pass
-        try: os.unlink(tmp_txt)
-        except: pass
+    import io as _io
+    reader = PdfReader(_io.BytesIO(raw_bytes))
+    text_parts = []
+    for page in reader.pages:
+        try:
+            text_parts.append(page.extract_text() or "")
+        except Exception as e:
+            log.warning(f"PDF səhifə parse xətası: {e}")
+    text = "\n".join(text_parts)
 
     questions = parse_adiak_text(text)
     payload = {
