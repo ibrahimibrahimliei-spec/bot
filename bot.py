@@ -799,6 +799,8 @@ def offer_resume(chat_id, context, user_id, saved):
 def show_subject_menu(chat_id, context: CallbackContext, edit_query=None):
     keyboard = []
     for s in DATA['subjects']:
+        if s.get('hidden'):  # Gizli fənnlər istifadəçilərə göstərilmir
+            continue
         total_q = len(subject_all_questions(s))
         label = f"{s.get('emoji', '📘')} {s['name']}"
         if len(label) > 45:
@@ -2341,6 +2343,7 @@ def show_admin_panel(chat_id, context, user_id=None, edit_query=None):
          InlineKeyboardButton("🚩 Şikayətlər", callback_data="admin_reports")],
         [InlineKeyboardButton("📊 Tam statistika", callback_data="admin_stats"),
          InlineKeyboardButton("📢 Bildiriş göndər", callback_data="admin_broadcast")],
+        [InlineKeyboardButton("📚 Fənn/Mövzu idarəçiliyi", callback_data="admin_subjects")],
         [InlineKeyboardButton("❌ Bağla", callback_data="admin_close")]
     ]
 
@@ -2503,6 +2506,97 @@ def admin_callback_handler(update: Update, context: CallbackContext):
             parse_mode='Markdown'
         )
         return
+
+    # ─── Fənn/Mövzu İdarəçiliyi ──────────────────────────────────────────────
+
+    if data == "admin_subjects":
+        show_subject_list(query, context)
+        return
+
+    if data == "admin_subj_new":
+        admin_wizard_data[user_id] = {'step': 'subj_new_id'}
+        query.edit_message_text(
+            "📚 *Yeni Fənn Yarat*\n\n"
+            "1/3: Fənn üçün qısa ID yazın (məs: `mm`, `adiak`, `tarix`)\n"
+            "_Yalnız latın hərfləri və rəqəm, boşluqsuz_\n\n"
+            "_Ləğv: /cancel_",
+            parse_mode='Markdown'
+        )
+        return
+
+    if data.startswith("admin_subj_"):
+        parts = data.split("_")
+        # admin_subj_<action>_<sid>
+        if len(parts) >= 4:
+            action = parts[2]
+            sid = "_".join(parts[3:])
+            subj = get_subject(sid)
+
+            if action == "view":
+                if not subj:
+                    query.answer("Fənn tapılmadı", show_alert=True); return
+                show_subject_detail(query, context, sid)
+                return
+
+            if action == "hide":
+                if not subj:
+                    query.answer("Fənn tapılmadı", show_alert=True); return
+                subj['hidden'] = not subj.get('hidden', False)
+                save_data()
+                state = "gizlədildi 🙈" if subj['hidden'] else "görünür edildi 👁"
+                query.answer(f"Fənn {state}", show_alert=True)
+                show_subject_detail(query, context, sid)
+                return
+
+            if action == "deltopic":
+                # admin_subj_deltopic_<sid>_<tidx>
+                if len(parts) >= 5:
+                    tidx = int(parts[-1])
+                    sid2 = "_".join(parts[3:-1])
+                    subj2 = get_subject(sid2)
+                    if subj2 and 0 <= tidx < len(subj2.get('topics', [])):
+                        t = subj2['topics'].pop(tidx)
+                        save_data()
+                        query.answer(f"Mövzu silindi: {t['name']}", show_alert=True)
+                        show_subject_detail(query, context, sid2)
+                return
+
+            if action == "rntopic":
+                # admin_subj_rntopic_<sid>_<tidx>
+                if len(parts) >= 5:
+                    tidx = int(parts[-1])
+                    sid2 = "_".join(parts[3:-1])
+                    admin_wizard_data[user_id] = {'step': 'topic_rename', 'sid': sid2, 'tidx': tidx}
+                    query.edit_message_text(
+                        f"✏️ Mövzunun yeni adını yazın:\n\n_Ləğv: /cancel_",
+                        parse_mode='Markdown'
+                    )
+                return
+
+            if action == "addtopic":
+                admin_wizard_data[user_id] = {'step': 'topic_add_name', 'sid': sid}
+                query.edit_message_text(
+                    f"➕ *Yeni Mövzu* — _{subj['name']}_\n\n"
+                    "Mövzunun adını yazın:\n\n_Ləğv: /cancel_",
+                    parse_mode='Markdown'
+                )
+                return
+
+            if action == "topics":
+                show_topic_list(query, context, sid)
+                return
+
+        return
+
+    if data == "admin_subj_list":
+        show_subject_list(query, context)
+        return
+
+    # Dublikat detektoru
+    if data == "admin_dupcheck":
+        run_duplicate_check(query, context)
+        return
+
 
     # ─── Sual redaktə düymələri (admin_edit wizard içindən) ──────────────────
     if data.startswith("adminq_"):
@@ -2674,6 +2768,177 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         admin_wizard_data.pop(user_id, None)
         show_admin_panel(chat_id, context, user_id=user_id, edit_query=query)
         return
+
+
+
+# ─── Fənn/Mövzu İdarəçiliyi Funksiyaları ─────────────────────────────────────
+
+def show_subject_list(query, context):
+    """Bütün fənnlərin siyahısını göstər."""
+    subjects = DATA.get('subjects', [])
+    lines = ["📚 *Fənn İdarəçiliyi*\n━━━━━━━━━━━━━━━━━"]
+    keyboard = []
+    for s in subjects:
+        hidden_mark = " 🙈" if s.get('hidden') else ""
+        q_count = len(s.get('all_questions', []))
+        t_count = len(s.get('topics', []))
+        lines.append(f"{s['emoji']} *{s['name']}*{hidden_mark}\n   ID: `{s['id']}` | {q_count} sual | {t_count} mövzu")
+        keyboard.append([InlineKeyboardButton(
+            f"{s['emoji']} {s['name']}{hidden_mark}",
+            callback_data=f"admin_subj_view_{s['id']}"
+        )])
+
+    keyboard.append([
+        InlineKeyboardButton("➕ Yeni fənn yarat", callback_data="admin_subj_new"),
+        InlineKeyboardButton("🔍 Dublikat", callback_data="admin_dupcheck")
+    ])
+    keyboard.append([InlineKeyboardButton("⬅️ Admin panel", callback_data="admin_panel")])
+
+    text = "\n\n".join(lines)
+    try:
+        query.edit_message_text(text=text, parse_mode='Markdown',
+                                reply_markup=InlineKeyboardMarkup(keyboard))
+    except Exception:
+        context.bot.send_message(chat_id=query.message.chat_id, text=text,
+                                 parse_mode='Markdown',
+                                 reply_markup=InlineKeyboardMarkup(keyboard))
+
+
+def show_subject_detail(query, context, sid):
+    """Bir fənnin detallarını və mövzularını göstər."""
+    subj = get_subject(sid)
+    if not subj:
+        query.answer("Fənn tapılmadı", show_alert=True)
+        return
+
+    hidden = subj.get('hidden', False)
+    topics = subj.get('topics', [])
+    q_count = len(subj.get('all_questions', []))
+    t_total_q = sum(len(t.get('questions', [])) for t in topics)
+
+    text = (
+        f"{subj['emoji']} *{subj['name']}*\n"
+        f"━━━━━━━━━━━━━━━━━\n"
+        f"🆔 ID: `{subj['id']}`\n"
+        f"👁 Status: {'🙈 Gizli' if hidden else '✅ Görünür'}\n"
+        f"❓ all_questions: *{q_count}*\n"
+        f"📂 Mövzular: *{len(topics)}* ({t_total_q} sual)\n\n"
+        f"Aşağıdan əməliyyat seçin:"
+    )
+
+    keyboard = []
+    if topics:
+        keyboard.append([InlineKeyboardButton(
+            f"📋 Mövzulara bax/idarə et ({len(topics)})",
+            callback_data=f"admin_subj_topics_{sid}"
+        )])
+
+    keyboard.append([
+        InlineKeyboardButton("➕ Mövzu əlavə et", callback_data=f"admin_subj_addtopic_{sid}"),
+    ])
+    keyboard.append([
+        InlineKeyboardButton("🙈 Gizlət" if not hidden else "👁 Göstər",
+                             callback_data=f"admin_subj_hide_{sid}")
+    ])
+    keyboard.append([InlineKeyboardButton("⬅️ Fənn siyahısı", callback_data="admin_subj_list")])
+
+    try:
+        query.edit_message_text(text=text, parse_mode='Markdown',
+                                reply_markup=InlineKeyboardMarkup(keyboard))
+    except Exception:
+        context.bot.send_message(chat_id=query.message.chat_id, text=text,
+                                 parse_mode='Markdown',
+                                 reply_markup=InlineKeyboardMarkup(keyboard))
+
+
+def show_topic_list(query, context, sid):
+    """Fənnin mövzularını idarəetmə düymələri ilə göstər."""
+    subj = get_subject(sid)
+    if not subj:
+        query.answer("Fənn tapılmadı", show_alert=True)
+        return
+
+    topics = subj.get('topics', [])
+    if not topics:
+        query.answer("Bu fənndə heç mövzu yoxdur.", show_alert=True)
+        show_subject_detail(query, context, sid)
+        return
+
+    lines = [f"📂 *{subj['emoji']} {subj['name']}* — Mövzular\n━━━━━━━━━━━━━━━━━"]
+    keyboard = []
+    for i, t in enumerate(topics):
+        qc = len(t.get('questions', []))
+        lines.append(f"{i+1}. {t['name']} — {qc} sual")
+        keyboard.append([
+            InlineKeyboardButton(f"✏️ {t['name'][:28]}", callback_data=f"admin_subj_rntopic_{sid}_{i}"),
+            InlineKeyboardButton("🗑 Sil", callback_data=f"admin_subj_deltopic_{sid}_{i}")
+        ])
+
+    text = "\n".join(lines)
+    keyboard.append([InlineKeyboardButton(f"⬅️ {subj['emoji']} {subj['name']}", callback_data=f"admin_subj_view_{sid}")])
+
+    try:
+        query.edit_message_text(text=text, parse_mode='Markdown',
+                                reply_markup=InlineKeyboardMarkup(keyboard))
+    except Exception:
+        context.bot.send_message(chat_id=query.message.chat_id, text=text,
+                                 parse_mode='Markdown',
+                                 reply_markup=InlineKeyboardMarkup(keyboard))
+
+
+def run_duplicate_check(query, context):
+    """Bütün suallar arasında dublikat tapır (token set uyğunluğu >= 85%)."""
+    import re as _re
+    all_qs = list(QUESTIONS_BY_ID.items())
+
+    def normalize(s):
+        return _re.sub(r'\s+', ' ', s.lower().strip())
+
+    def similarity(a, b):
+        sa = set(normalize(a).split())
+        sb = set(normalize(b).split())
+        if not sa or not sb:
+            return 0
+        return len(sa & sb) / max(len(sa), len(sb))
+
+    duplicates = []
+    checked = set()
+    for i in range(len(all_qs)):
+        qid_a, (sid_a, q_a) = all_qs[i]
+        for j in range(i + 1, min(i + 200, len(all_qs))):
+            qid_b, (sid_b, q_b) = all_qs[j]
+            pair = (min(qid_a, qid_b), max(qid_a, qid_b))
+            if pair in checked:
+                continue
+            checked.add(pair)
+            sim = similarity(q_a['q'], q_b['q'])
+            if sim >= 0.85:
+                duplicates.append((sim, qid_a, q_a['q'], qid_b, q_b['q']))
+            if len(duplicates) >= 15:
+                break
+        if len(duplicates) >= 15:
+            break
+
+    if not duplicates:
+        text = "✅ *Dublikat Detektoru*\n\nHeç bir dublikat tapılmadı! (ilk 200 sual yoxlanıldı)"
+    else:
+        lines = [f"⚠️ *Dublikat Detektoru* — {len(duplicates)} cüt tapıldı\n━━━━━━━━━━━━━━━━━"]
+        for sim, qa_id, qa_text, qb_id, qb_text in duplicates:
+            lines.append(
+                f"🔴 *{round(sim*100)}% uyğun*\n"
+                f"  `#{qa_id}` {qa_text[:50]}…\n"
+                f"  `#{qb_id}` {qb_text[:50]}…"
+            )
+        text = "\n\n".join(lines)
+
+    keyboard = [[InlineKeyboardButton("⬅️ Fənn siyahısı", callback_data="admin_subj_list")]]
+    try:
+        query.edit_message_text(text=text, parse_mode='Markdown',
+                                reply_markup=InlineKeyboardMarkup(keyboard))
+    except Exception:
+        context.bot.send_message(chat_id=query.message.chat_id, text=text,
+                                 parse_mode='Markdown',
+                                 reply_markup=InlineKeyboardMarkup(keyboard))
 
 
 def show_admin_reports(query, context):
@@ -2968,6 +3233,112 @@ def admin_text_handler(update: Update, context: CallbackContext):
                 failed += 1
         update.message.reply_text(f"✅ Göndərildi: {success}\n❌ Uğursuz: {failed}")
         return True
+
+    # ── Yeni Fənn wizard ──
+    if step == 'subj_new_id':
+        sid_new = text.strip().lower().replace(' ', '_')
+        import re as _re2
+        if not _re2.match(r'^[a-z0-9_]+$', sid_new):
+            update.message.reply_text(
+                "❌ ID yalnız latın hərfləri, rəqəm və alt xəttdən ibarət olmalıdır.\n"
+                "Yenidən yazın və ya /cancel"
+            )
+            return True
+        if sid_new in SUBJECTS_BY_ID:
+            update.message.reply_text(
+                f"❌ `{sid_new}` ID-li fənn artıq mövcuddur. Başqa ID seçin:\n\n_Ləğv: /cancel_",
+                parse_mode='Markdown'
+            )
+            return True
+        wiz['sid_new'] = sid_new
+        wiz['step'] = 'subj_new_name'
+        update.message.reply_text(
+            f"2/3: ID qəbul edildi: `{sid_new}`\n\nİndi fənnin tam adını yazın:\n\n_Ləğv: /cancel_",
+            parse_mode='Markdown'
+        )
+        return True
+
+    if step == 'subj_new_name':
+        wiz['name_new'] = text.strip()
+        wiz['step'] = 'subj_new_emoji'
+        update.message.reply_text(
+            f"3/3: Ad: *{text.strip()}*\n\nFənn üçün emoji seçin (bir emoji yazın):\n\n_Ləğv: /cancel_",
+            parse_mode='Markdown'
+        )
+        return True
+
+    if step == 'subj_new_emoji':
+        emoji_new = text.strip().split()[0] if text.strip() else '📚'
+        sid_new = wiz.get('sid_new')
+        name_new = wiz.get('name_new')
+        # Yeni fənn yarat
+        new_subj = {
+            'id': sid_new,
+            'name': name_new,
+            'emoji': emoji_new,
+            'topics': [],
+            'all_questions': []
+        }
+        DATA['subjects'].append(new_subj)
+        save_data()
+        admin_wizard_data.pop(user.id, None)
+        update.message.reply_text(
+            f"✅ Fənn yaradıldı!\n\n{emoji_new} *{name_new}*\nID: `{sid_new}`\n\n"
+            "İndi bu fənnə sual əlavə etmək üçün `/qadd` əmrindən və ya admin paneldəki "
+            "Bulk Import-dan istifadə edə bilərsiniz.",
+            parse_mode='Markdown'
+        )
+        show_admin_panel(update.effective_chat.id, context, user_id=user.id)
+        return True
+
+    # ── Mövzu əlavə et wizard ──
+    if step == 'topic_add_name':
+        sid = wiz.get('sid')
+        subj = get_subject(sid)
+        if not subj:
+            admin_wizard_data.pop(user.id, None)
+            update.message.reply_text("❌ Fənn tapılmadı.")
+            return True
+        topic_name = text.strip()
+        # Eyni adlı mövzu var mı?
+        existing_names = [t['name'].lower() for t in subj.get('topics', [])]
+        if topic_name.lower() in existing_names:
+            update.message.reply_text(
+                f"⚠️ *{topic_name}* adlı mövzu artıq mövcuddur.\nBaşqa ad yazın və ya /cancel",
+                parse_mode='Markdown'
+            )
+            return True
+        subj.setdefault('topics', []).append({'name': topic_name, 'questions': []})
+        save_data()
+        admin_wizard_data.pop(user.id, None)
+        update.message.reply_text(
+            f"✅ Mövzu əlavə edildi: *{topic_name}*\n"
+            f"Fənn: {subj['emoji']} {subj['name']}",
+            parse_mode='Markdown'
+        )
+        show_admin_panel(update.effective_chat.id, context, user_id=user.id)
+        return True
+
+    # ── Mövzu adını dəyiş wizard ──
+    if step == 'topic_rename':
+        sid = wiz.get('sid')
+        tidx = wiz.get('tidx')
+        subj = get_subject(sid)
+        if subj and tidx is not None and 0 <= tidx < len(subj.get('topics', [])):
+            old_name = subj['topics'][tidx]['name']
+            subj['topics'][tidx]['name'] = text.strip()
+            save_data()
+            admin_wizard_data.pop(user.id, None)
+            update.message.reply_text(
+                f"✅ Mövzu adı dəyişdirildi:\n*{old_name}* → *{text.strip()}*",
+                parse_mode='Markdown'
+            )
+            show_admin_panel(update.effective_chat.id, context, user_id=user.id)
+        else:
+            admin_wizard_data.pop(user.id, None)
+            update.message.reply_text("❌ Mövzu tapılmadı.")
+        return True
+
 
     return False
 
