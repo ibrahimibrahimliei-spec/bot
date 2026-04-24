@@ -55,8 +55,8 @@ BOT_USERNAME = None
 # ─── Monetag Ad Config ────────────────────────────────────────────────────────
 # WebApp URL-lərinə #ctx=start və ya #ctx=cont fragmenti əlavə olunur ki,
 # HTML hansı kontekstdə açıldığını biləsin və bota düzgün siqnal göndərsin.
-AD_WEBAPP_REWARDED_URL     = "https://ibrahimibrahimliei-spec.github.io/adsgram-bot/ad_rewarded.html"
-AD_WEBAPP_INTERSTITIAL_URL = "https://ibrahimibrahimliei-spec.github.io/adsgram-bot/ad_rewarded.html"
+AD_WEBAPP_REWARDED_URL     = "https://ibrahimibrahimliei-spec.github.io/bot/ad_rewarded.html"
+AD_WEBAPP_INTERSTITIAL_URL = "https://ibrahimibrahimliei-spec.github.io/bot/ad_rewarded.html"
 AD_EVERY_N_QUESTIONS = 5
 AD_MIN_GAP_SECONDS = 30  # Eyni reklamın çox sıx göstərilməməsi üçün
 AD_REQUIRED = True  # False edilərsə reklam izləmədən də başlamaq mümkün olur (debug üçün)
