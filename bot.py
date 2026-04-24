@@ -2790,16 +2790,40 @@ def admin_callback_handler(update: Update, context: CallbackContext):
 
 # ─── Fənn/Mövzu İdarəçiliyi Funksiyaları ─────────────────────────────────────
 
+def _send_or_edit(query, context, text, keyboard):
+    """Mesajı edit et, alınmasa reply et. HTML parse mode istifadə edir."""
+    markup = InlineKeyboardMarkup(keyboard)
+    try:
+        query.edit_message_text(text=text, parse_mode='HTML',
+                                reply_markup=markup)
+    except Exception as e:
+        log.warning(f"edit_message_text failed ({type(e).__name__}: {e}), falling back to reply_text")
+        try:
+            query.message.reply_text(text=text, parse_mode='HTML',
+                                     reply_markup=markup)
+        except Exception as e2:
+            log.error(f"reply_text also failed: {e2}")
+
+
+def _he(s):
+    """HTML escape — fənn adlarında xüsusi simvol olsa da qırılmasın."""
+    import html as _html_mod
+    return _html_mod.escape(str(s))
+
+
 def show_subject_list(query, context):
     """Bütün fənnlərin siyahısını göstər."""
     subjects = DATA.get('subjects', [])
-    lines = ["📚 *Fənn İdarəçiliyi*\n━━━━━━━━━━━━━━━━━"]
+    lines = ["📚 <b>Fənn İdarəçiliyi</b>\n━━━━━━━━━━━━━━━━━"]
     keyboard = []
     for s in subjects:
         hidden_mark = " 🙈" if s.get('hidden') else ""
         q_count = len(s.get('all_questions', []))
         t_count = len(s.get('topics', []))
-        lines.append(f"{s['emoji']} *{s['name']}*{hidden_mark}\n   ID: `{s['id']}` | {q_count} sual | {t_count} mövzu")
+        lines.append(
+            f"{_he(s['emoji'])} <b>{_he(s['name'])}</b>{hidden_mark}\n"
+            f"   ID: <code>{_he(s['id'])}</code> | {q_count} sual | {t_count} mövzu"
+        )
         keyboard.append([InlineKeyboardButton(
             f"{s['emoji']} {s['name']}{hidden_mark}",
             callback_data=f"admin_subj_view_{s['id']}"
@@ -2811,14 +2835,7 @@ def show_subject_list(query, context):
     ])
     keyboard.append([InlineKeyboardButton("⬅️ Admin panel", callback_data="admin_panel")])
 
-    text = "\n\n".join(lines)
-    try:
-        query.edit_message_text(text=text, parse_mode='Markdown',
-                                reply_markup=InlineKeyboardMarkup(keyboard))
-    except Exception:
-        context.bot.send_message(chat_id=query.message.chat_id, text=text,
-                                 parse_mode='Markdown',
-                                 reply_markup=InlineKeyboardMarkup(keyboard))
+    _send_or_edit(query, context, "\n\n".join(lines), keyboard)
 
 
 def show_subject_detail(query, context, sid):
@@ -2834,12 +2851,12 @@ def show_subject_detail(query, context, sid):
     t_total_q = sum(len(t.get('questions', [])) for t in topics)
 
     text = (
-        f"{subj['emoji']} *{subj['name']}*\n"
+        f"{_he(subj['emoji'])} <b>{_he(subj['name'])}</b>\n"
         f"━━━━━━━━━━━━━━━━━\n"
-        f"🆔 ID: `{subj['id']}`\n"
+        f"🆔 ID: <code>{_he(subj['id'])}</code>\n"
         f"👁 Status: {'🙈 Gizli' if hidden else '✅ Görünür'}\n"
-        f"❓ all_questions: *{q_count}*\n"
-        f"📂 Mövzular: *{len(topics)}* ({t_total_q} sual)\n\n"
+        f"❓ Sual sayı: <b>{q_count}</b>\n"
+        f"📂 Mövzular: <b>{len(topics)}</b> ({t_total_q} sual)\n\n"
         f"Aşağıdan əməliyyat seçin:"
     )
 
@@ -2849,23 +2866,14 @@ def show_subject_detail(query, context, sid):
             f"📋 Mövzulara bax/idarə et ({len(topics)})",
             callback_data=f"admin_subj_topics_{sid}"
         )])
-
     keyboard.append([
         InlineKeyboardButton("➕ Mövzu əlavə et", callback_data=f"admin_subj_addtopic_{sid}"),
-    ])
-    keyboard.append([
         InlineKeyboardButton("🙈 Gizlət" if not hidden else "👁 Göstər",
                              callback_data=f"admin_subj_hide_{sid}")
     ])
     keyboard.append([InlineKeyboardButton("⬅️ Fənn siyahısı", callback_data="admin_subj_list")])
 
-    try:
-        query.edit_message_text(text=text, parse_mode='Markdown',
-                                reply_markup=InlineKeyboardMarkup(keyboard))
-    except Exception:
-        context.bot.send_message(chat_id=query.message.chat_id, text=text,
-                                 parse_mode='Markdown',
-                                 reply_markup=InlineKeyboardMarkup(keyboard))
+    _send_or_edit(query, context, text, keyboard)
 
 
 def show_topic_list(query, context, sid):
@@ -2881,11 +2889,11 @@ def show_topic_list(query, context, sid):
         show_subject_detail(query, context, sid)
         return
 
-    lines = [f"📂 *{subj['emoji']} {subj['name']}* — Mövzular\n━━━━━━━━━━━━━━━━━"]
+    lines = [f"📂 <b>{_he(subj['emoji'])} {_he(subj['name'])}</b> — Mövzular\n━━━━━━━━━━━━━━━━━"]
     keyboard = []
     for i, t in enumerate(topics):
         qc = len(t.get('questions', []))
-        lines.append(f"{i+1}. {t['name']} — {qc} sual")
+        lines.append(f"{i+1}. {_he(t['name'])} — {qc} sual")
         keyboard.append([
             InlineKeyboardButton(f"✏️ {t['name'][:28]}", callback_data=f"admin_subj_rntopic_{sid}_{i}"),
             InlineKeyboardButton("🗑 Sil", callback_data=f"admin_subj_deltopic_{sid}_{i}")
@@ -2894,13 +2902,7 @@ def show_topic_list(query, context, sid):
     text = "\n".join(lines)
     keyboard.append([InlineKeyboardButton(f"⬅️ {subj['emoji']} {subj['name']}", callback_data=f"admin_subj_view_{sid}")])
 
-    try:
-        query.edit_message_text(text=text, parse_mode='Markdown',
-                                reply_markup=InlineKeyboardMarkup(keyboard))
-    except Exception:
-        context.bot.send_message(chat_id=query.message.chat_id, text=text,
-                                 parse_mode='Markdown',
-                                 reply_markup=InlineKeyboardMarkup(keyboard))
+    _send_or_edit(query, context, text, keyboard)
 
 
 def run_duplicate_check(query, context):
@@ -2937,25 +2939,19 @@ def run_duplicate_check(query, context):
             break
 
     if not duplicates:
-        text = "✅ *Dublikat Detektoru*\n\nHeç bir dublikat tapılmadı! (ilk 200 sual yoxlanıldı)"
+        text = "✅ <b>Dublikat Detektoru</b>\n\nHeç bir dublikat tapılmadı! (ilk 200 sual yoxlanıldı)"
     else:
-        lines = [f"⚠️ *Dublikat Detektoru* — {len(duplicates)} cüt tapıldı\n━━━━━━━━━━━━━━━━━"]
+        lines = [f"⚠️ <b>Dublikat Detektoru</b> — {len(duplicates)} cüt tapıldı\n━━━━━━━━━━━━━━━━━"]
         for sim, qa_id, qa_text, qb_id, qb_text in duplicates:
             lines.append(
-                f"🔴 *{round(sim*100)}% uyğun*\n"
-                f"  `#{qa_id}` {qa_text[:50]}…\n"
-                f"  `#{qb_id}` {qb_text[:50]}…"
+                f"🔴 <b>{round(sim*100)}% uyğun</b>\n"
+                f"  <code>#{qa_id}</code> {_he(qa_text[:50])}…\n"
+                f"  <code>#{qb_id}</code> {_he(qb_text[:50])}…"
             )
         text = "\n\n".join(lines)
 
     keyboard = [[InlineKeyboardButton("⬅️ Fənn siyahısı", callback_data="admin_subj_list")]]
-    try:
-        query.edit_message_text(text=text, parse_mode='Markdown',
-                                reply_markup=InlineKeyboardMarkup(keyboard))
-    except Exception:
-        context.bot.send_message(chat_id=query.message.chat_id, text=text,
-                                 parse_mode='Markdown',
-                                 reply_markup=InlineKeyboardMarkup(keyboard))
+    _send_or_edit(query, context, text, keyboard)
 
 
 def show_admin_reports(query, context):
