@@ -2575,6 +2575,33 @@ def admin_callback_handler(update: Update, context: CallbackContext):
             show_subject_detail(query, context, sid)
             return
 
+        if action == "delconfirm":
+            if not subj:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            q_count = len(subj.get('all_questions', [])) + sum(len(t.get('questions',[])) for t in subj.get('topics',[]))
+            text = (
+                f"🗑 <b>Fənni sil: {_he(subj['emoji'])} {_he(subj['name'])}</b>\n"
+                f"━━━━━━━━━━━━━━━━━\n"
+                f"⚠️ Bu əməliyyat GERİ ALINMAZ!\n\n"
+                f"❓ {q_count} sual da silinəcək.\n\n"
+                f"Əminsiniz?"
+            )
+            keyboard = [
+                [InlineKeyboardButton("🗑 Bəli, sil!", callback_data=f"admin_subj_delyes_{sid}"),
+                 InlineKeyboardButton("❌ Xeyr", callback_data=f"admin_subj_view_{sid}")]
+            ]
+            _send_or_edit(query, context, text, keyboard)
+            return
+
+        if action == "delyes":
+            if not subj:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            DATA['subjects'] = [s for s in DATA['subjects'] if s['id'] != sid]
+            save_data()
+            query.answer(f"✅ Fənn silindi: {subj['name']}", show_alert=True)
+            show_subject_list(query, context)
+            return
+
         if action == "topics":
             if not subj:
                 query.answer("Fənn tapılmadı", show_alert=True); return
@@ -2607,9 +2634,41 @@ def admin_callback_handler(update: Update, context: CallbackContext):
                 topic_name = subj2['topics'][tidx]['name'] if tidx < len(subj2.get('topics', [])) else "?"
                 admin_wizard_data[user_id] = {'step': 'topic_rename', 'sid': sid, 'tidx': tidx}
                 query.edit_message_text(
-                    f"✏️ *{topic_name}* — yeni adı yazın:\n\n_Ləğv: /cancel_",
-                    parse_mode='Markdown'
+                    f"✏️ {topic_name} — yeni adı yazın:\n\nLəğv: /cancel",
+                    parse_mode=None
                 )
+            return
+
+        if action == "delete":
+            # Silmə təsdiq ekranı
+            subj2 = get_subject(sid)
+            if not subj2:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            q_count = len(subj2.get('all_questions', []))
+            t_count = len(subj2.get('topics', []))
+            text = (
+                f"⚠️ <b>Fənni silmək istədiyinizdən əminsiniz?</b>\n\n"
+                f"{_he(subj2['emoji'])} <b>{_he(subj2['name'])}</b>\n"
+                f"❓ {q_count} sual və {t_count} mövzu <b>tamamilə silinəcək!</b>\n\n"
+                f"Bu əməliyyat geri alına bilməz."
+            )
+            keyboard = [
+                [InlineKeyboardButton("✅ Bəli, sil", callback_data=f"admin_subj_delconfirm_{sid}"),
+                 InlineKeyboardButton("❌ Xeyr, geri", callback_data=f"admin_subj_view_{sid}")]
+            ]
+            _send_or_edit(query, context, text, keyboard)
+            return
+
+        if action == "delconfirm":
+            # Fənni sil
+            before = len(DATA['subjects'])
+            DATA['subjects'] = [s for s in DATA['subjects'] if s['id'] != sid]
+            if len(DATA['subjects']) < before:
+                save_data()
+                query.answer("✅ Fənn silindi!", show_alert=True)
+            else:
+                query.answer("Fənn tapılmadı", show_alert=True)
+            show_subject_list(query, context)
             return
 
         return
@@ -2870,6 +2929,9 @@ def show_subject_detail(query, context, sid):
         InlineKeyboardButton("➕ Mövzu əlavə et", callback_data=f"admin_subj_addtopic_{sid}"),
         InlineKeyboardButton("🙈 Gizlət" if not hidden else "👁 Göstər",
                              callback_data=f"admin_subj_hide_{sid}")
+    ])
+    keyboard.append([
+        InlineKeyboardButton("🗑 Fənni sil", callback_data=f"admin_subj_delconfirm_{sid}"),
     ])
     keyboard.append([InlineKeyboardButton("⬅️ Fənn siyahısı", callback_data="admin_subj_list")])
 
