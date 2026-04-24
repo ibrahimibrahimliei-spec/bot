@@ -2524,70 +2524,6 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         )
         return
 
-    if data.startswith("admin_subj_"):
-        parts = data.split("_")
-        # admin_subj_<action>_<sid>
-        if len(parts) >= 4:
-            action = parts[2]
-            sid = "_".join(parts[3:])
-            subj = get_subject(sid)
-
-            if action == "view":
-                if not subj:
-                    query.answer("Fənn tapılmadı", show_alert=True); return
-                show_subject_detail(query, context, sid)
-                return
-
-            if action == "hide":
-                if not subj:
-                    query.answer("Fənn tapılmadı", show_alert=True); return
-                subj['hidden'] = not subj.get('hidden', False)
-                save_data()
-                state = "gizlədildi 🙈" if subj['hidden'] else "görünür edildi 👁"
-                query.answer(f"Fənn {state}", show_alert=True)
-                show_subject_detail(query, context, sid)
-                return
-
-            if action == "deltopic":
-                # admin_subj_deltopic_<sid>_<tidx>
-                if len(parts) >= 5:
-                    tidx = int(parts[-1])
-                    sid2 = "_".join(parts[3:-1])
-                    subj2 = get_subject(sid2)
-                    if subj2 and 0 <= tidx < len(subj2.get('topics', [])):
-                        t = subj2['topics'].pop(tidx)
-                        save_data()
-                        query.answer(f"Mövzu silindi: {t['name']}", show_alert=True)
-                        show_subject_detail(query, context, sid2)
-                return
-
-            if action == "rntopic":
-                # admin_subj_rntopic_<sid>_<tidx>
-                if len(parts) >= 5:
-                    tidx = int(parts[-1])
-                    sid2 = "_".join(parts[3:-1])
-                    admin_wizard_data[user_id] = {'step': 'topic_rename', 'sid': sid2, 'tidx': tidx}
-                    query.edit_message_text(
-                        f"✏️ Mövzunun yeni adını yazın:\n\n_Ləğv: /cancel_",
-                        parse_mode='Markdown'
-                    )
-                return
-
-            if action == "addtopic":
-                admin_wizard_data[user_id] = {'step': 'topic_add_name', 'sid': sid}
-                query.edit_message_text(
-                    f"➕ *Yeni Mövzu* — _{subj['name']}_\n\n"
-                    "Mövzunun adını yazın:\n\n_Ləğv: /cancel_",
-                    parse_mode='Markdown'
-                )
-                return
-
-            if action == "topics":
-                show_topic_list(query, context, sid)
-                return
-
-        return
-
     if data == "admin_subj_list":
         show_subject_list(query, context)
         return
@@ -2595,6 +2531,87 @@ def admin_callback_handler(update: Update, context: CallbackContext):
     # Dublikat detektoru
     if data == "admin_dupcheck":
         run_duplicate_check(query, context)
+        return
+
+    if data.startswith("admin_subj_"):
+        # Format: admin_subj_<action>_<sid>  OR  admin_subj_<action>_<sid>_<idx>
+        # Strip prefix and parse manually
+        rest = data[len("admin_subj_"):]  # e.g. "view_adiak" or "deltopic_adiak_2"
+        underscore_pos = rest.find("_")
+        if underscore_pos == -1:
+            return
+        action = rest[:underscore_pos]          # "view", "hide", "topics", "addtopic", "deltopic", "rntopic"
+        after_action = rest[underscore_pos+1:]  # "adiak" or "adiak_2"
+
+        # For deltopic/rntopic the last segment is the index
+        if action in ("deltopic", "rntopic"):
+            last_under = after_action.rfind("_")
+            if last_under == -1:
+                return
+            sid = after_action[:last_under]
+            try:
+                tidx = int(after_action[last_under+1:])
+            except ValueError:
+                return
+        else:
+            sid = after_action
+            tidx = None
+
+        subj = get_subject(sid)
+
+        if action == "view":
+            if not subj:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            show_subject_detail(query, context, sid)
+            return
+
+        if action == "hide":
+            if not subj:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            subj['hidden'] = not subj.get('hidden', False)
+            save_data()
+            state = "gizlədildi 🙈" if subj['hidden'] else "görünür edildi 👁"
+            query.answer(f"Fənn {state}", show_alert=True)
+            show_subject_detail(query, context, sid)
+            return
+
+        if action == "topics":
+            if not subj:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            show_topic_list(query, context, sid)
+            return
+
+        if action == "addtopic":
+            if not subj:
+                query.answer("Fənn tapılmadı", show_alert=True); return
+            admin_wizard_data[user_id] = {'step': 'topic_add_name', 'sid': sid}
+            query.edit_message_text(
+                f"➕ *Yeni Mövzu* — _{subj['name']}_\n\n"
+                "Mövzunun adını yazın:\n\n_Ləğv: /cancel_",
+                parse_mode='Markdown'
+            )
+            return
+
+        if action == "deltopic":
+            subj2 = get_subject(sid)
+            if subj2 and tidx is not None and 0 <= tidx < len(subj2.get('topics', [])):
+                t = subj2['topics'].pop(tidx)
+                save_data()
+                query.answer(f"Mövzu silindi: {t['name']}", show_alert=True)
+                show_topic_list(query, context, sid)
+            return
+
+        if action == "rntopic":
+            subj2 = get_subject(sid)
+            if subj2 and tidx is not None:
+                topic_name = subj2['topics'][tidx]['name'] if tidx < len(subj2.get('topics', [])) else "?"
+                admin_wizard_data[user_id] = {'step': 'topic_rename', 'sid': sid, 'tidx': tidx}
+                query.edit_message_text(
+                    f"✏️ *{topic_name}* — yeni adı yazın:\n\n_Ləğv: /cancel_",
+                    parse_mode='Markdown'
+                )
+            return
+
         return
 
 
