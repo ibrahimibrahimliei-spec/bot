@@ -8443,6 +8443,2516 @@
           "id": 703
         }
       ]
-    }
-  ]
-}
+    },
+    {
+      "id": "aztarix",
+      "name": "Azərbaycan Tarixi",
+      "emoji": "🏛",
+      "topics": [],
+      "all_questions": [
+        {
+          "q": "Ox və yay meydana gəlmişdir:",
+          "answers": [
+            "Aşel dövründə",
+            "Neolit dövründə",
+            "Mustye dövründə",
+            "Mezolit dövründə",
+            "Eneolit dövründə"
+          ],
+          "correct": "Mustye dövründə",
+          "id": 704
+        },
+        {
+          "q": "Azərbaycanda birinci böyük ictimai əmək bölgüsü baş verib?",
+          "answers": [
+            "Erkən orta əsrlərdə",
+            "Eneolit dövründə",
+            "Erkən",
+            "Tunc dövründə",
+            "Neolit dövründə"
+          ],
+          "correct": "Eneolit dövründə",
+          "id": 705
+        },
+        {
+          "q": "Qızılbaşlar Ağqoyunlular üzərində ilk qələbəni nə zaman qazandı:",
+          "answers": [
+            "1503- cü ildə",
+            "Almaqulağı döyüşündə 1500- cü ildə",
+            "Cabani döyüşündə 1514- cü ildə",
+            "Çaldıran döyüşündə 1501- ci ildə",
+            "Şərur döyüşündə 1510- cu ildə"
+          ],
+          "correct": "Cabani döyüşündə 1514- cü ildə",
+          "id": 706
+        },
+        {
+          "q": "Çaldıran döyüşünün nəticəsi nədən ibarət oldu:",
+          "answers": [
+            "Türkiyə Ərzurum şəhəri ilə birlikdə Şərqi Anadolu və Şimali Mesopotamiyaya yiyələndi",
+            "Səfəvilər bütün Azərbaycan ərazisini itirdilər",
+            "Döyüş nəticəsiz başa çatdı",
+            "Cənubi Azərbaycan Osmanlılara verildi",
+            "Gürcüstan ərazisi Səfəvilərlə Osmanlılar arasında bölüşdürüldü."
+          ],
+          "correct": "Türkiyə Ərzurum şəhəri ilə birlikdə Şərqi Anadolu və Şimali Mesopotamiyaya yiyələndi",
+          "id": 707
+        },
+        {
+          "q": "Şeyx Xiyabani yeni dövlətini necə adlandırırdı:",
+          "answers": [
+            "Gilan respublikası",
+            "Azadistan",
+            "Azərbaycan",
+            "Azərbaycan",
+            "Cümhuriyyəti"
+          ],
+          "correct": "Gilan respublikası",
+          "id": 708
+        },
+        {
+          "q": "Cənubi Azərbaycanın ticarət əlaqələrinin şimala yönəlməsinə şərait yaradan mühüm amillərdən biri:",
+          "answers": [
+            "Gömrük rüsumlarının daha da ağırlaşdırılması haqqında İran şahının fərman verməsi Türkmənçay müqaviləsinə əsasən rus tacirlərinin güzəştli ticarət hüququna malik olması İngiltərənin İranın iqtisadiyyatına daha geniş nüfuz etməsi Şimal ölkələrinə xırda sənətkarlıq məhsullarına olan tələbatın artması Çar Rusiyasının Avropa mallarının Qafqaza daxil olmasını məhdudlaşdırması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 709
+        },
+        {
+          "q": "Türkmənçay müqaviləsindən sonra Təbriz əyalətində nizami qoşun hissəsinin başçısı necə adlanırdı :",
+          "answers": [
+            "Sahibi - divan",
+            "Əmir",
+            "Əmir əl - üməra",
+            "Sədr - əzəm",
+            "Əmir - nizam"
+          ],
+          "correct": "Sədr - əzəm",
+          "id": 710
+        },
+        {
+          "q": "Səlcuq hökmdarı Sultan Mahmudun Şirvana hücumu nə zaman baş vermişdi:",
+          "answers": [
+            "1123- cü ildə 1125- ci ildə 1120- ci ildə 1130- cu ildə 1121- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "1123- cü ildə 1125- ci ildə 1120- ci ildə 1130- cu ildə 1121- ci ildə",
+          "id": 711
+        },
+        {
+          "q": "Rəvvadilər dövləti səlcuqların vassallığını qəbul etməyə məcbur oldu?",
+          "answers": [
+            "1055-ci ildə 1227-ci ildə 1064-ci ildə 1054-cü ildə 1037-ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 712
+        },
+        {
+          "q": "Ərəblər Albaniyanin müstəqilliyinə son qoydular:",
+          "answers": [
+            "681-ci ildə",
+            "Cavanşirin ölümündən sonra 704-ci ildə",
+            "Varaz-Trdatın öldürülməsi ilə",
+            "Hilat şəhəri yaxınlığında xəzərləri məğlub etməklə 705-ci ildə alban hakimi",
+            "Şeruyə və ona yaxın adamların öldürülməsi ilə"
+          ],
+          "correct": "Varaz-Trdatın öldürülməsi ilə",
+          "id": 713
+        },
+        {
+          "q": "Azərbaycanda toxa əkinşiliyi xış əkinçiliyi ilə əvəz olunub:",
+          "answers": [
+            "Neolit dövründə Erkən Tunc dövründə Mezolit dövründə Paleolit dövründə Son Tunc və İlk Dəmir dövründə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Neolit dövründə Erkən Tunc dövründə Mezolit dövründə Paleolit dövründə Son Tunc və İlk Dəmir dövründə",
+          "id": 714
+        },
+        {
+          "q": "Azərbaycanda birinci böyük ictimai əmək bölgüsü baş verib?",
+          "answers": [
+            "Antik dövrdə Neolit dövründə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Antik dövrdə Neolit dövründə",
+          "id": 715
+        },
+        {
+          "q": "Şah I İsmayılın daxili siyasətinin əsas istiqamətləribndən biri:",
+          "answers": [
+            "Feodalların iqtisadi qüdrətini sarsıtmaq",
+            "Müharibələrdən əldə edilən gəlirləri iqtisadiyata yönəltmək",
+            "Dövlətin şimal sərhədlərinin təhlükəsizliyini təmin etmək",
+            "Tamğa və bac vergisini ləğv etmək",
+            "Mərkəzləşmiş dövlət yaratmaq"
+          ],
+          "correct": "Tamğa və bac vergisini ləğv etmək",
+          "id": 716
+        },
+        {
+          "q": "Ağqoyunlu dövlətinin bölünməsinə səbəb oldu:",
+          "answers": [
+            "Baysanqur ilə Rüstəm padşah arasında mübarizənin başlaması Yaqub padşahın vəfat etməsi Murad Mirzə və Əlvənd Mirzə arasında hakimiyyət uğrunda mübarizənin başlanması Şirvanşahlar və Ərdəbil hakimliyinin müstəqil siyasət yeritməsi Osmanlı dövlətinin Əhməd padşahı hakimiyyəti ələ almaq üçün göndərməsi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 717
+        },
+        {
+          "q": "Ağqoyunlu tayfa birliyinin əsasını qoymuşdu:",
+          "answers": [
+            "Cahangir",
+            "Mirzə",
+            "Pəhləvan bəy",
+            "Həsən bəy",
+            "Qara"
+          ],
+          "correct": "Cahangir",
+          "id": 718
+        },
+        {
+          "q": "1472- ci ildə Həsən bəy Osmanlı dövlətinə qarşı hərbi ittifaq yaratmışdı:",
+          "answers": [
+            "Macarıstanla",
+            "Portuqaliya ilə",
+            "Roma ilə",
+            "Venesiya ilə",
+            "Polşa ilə"
+          ],
+          "correct": "Roma ilə",
+          "id": 719
+        },
+        {
+          "q": "Ağqoyunlu- Osmanlı münasibətlərini daha da gərginləşdirdi:",
+          "answers": [
+            "Trabzon imperiyasının Osmanlı ilə yaxınlaşması II Mehmetin Trabzon üzərinə yürüş etməsi Həsən bəyin Teymurilər ilə yaxınaşması Venesiya ilə sultan II Mehmet arasıda ittifaqın yaranması Genuya şəhər dövləti ilə Həsən bəy arasında ittifaqın yaranması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Trabzon imperiyasının Osmanlı ilə yaxınlaşması II Mehmetin Trabzon üzərinə yürüş etməsi Həsən bəyin Teymurilər ilə yaxınaşması Venesiya ilə sultan II Mehmet arasıda ittifaqın yaranması Genuya şəhər dövləti ilə Həsən bəy arasında ittifaqın yaranması",
+          "id": 720
+        },
+        {
+          "q": "1492- ci ildə baş vermiş Bərdə döyüşünün nəticəsi :",
+          "answers": [
+            "Rüstəm",
+            "Mirzə",
+            "Baysanqurla birlikdə",
+            "Əhməd padşahı məğlub etdi",
+            "Baysanqur qalib gələrək"
+          ],
+          "correct": "Rüstəm",
+          "id": 721
+        },
+        {
+          "q": "Monqollar Azərbaycanın işğalını başa çatdırdı:",
+          "answers": [
+            "Dərbəndin tutulması ilə",
+            "Marağanın tutlması ilə",
+            "Şamaxının tutulması ilə",
+            "Bakının tutulması ilə",
+            "Təbrizin tutulması ilə"
+          ],
+          "correct": "Dərbəndin tutulması ilə",
+          "id": 722
+        },
+        {
+          "q": "1239-1256 - cı illərdə Azərbaycan və Cənubi Qafqaz idarə olunurdu:",
+          "answers": [
+            "Ali",
+            "Monbqol",
+            "Xaqanlığının canişinləri tərəfindən",
+            "Monqol canişinlərin təyin etdiyi kiçik feodallar tərəfindən",
+            "Monqol canişinlərinin təyin etdiyi noyonlar tərəfindən"
+          ],
+          "correct": "Ali",
+          "id": 723
+        },
+        {
+          "q": "Yusif ibn Əbu Sacın hakimiyyəti dövrünə aid deyil:",
+          "answers": [
+            "Dövlətin sərhədlərini möhkəmləndirmək üçün",
+            "Dərbənd səddini təmir etməsi",
+            "Qanunnamə qəbul etməsi",
+            "Maliyyə və vergi sahəsində tədbirlər həyata keçirməsi",
+            "Azərbaycanın şimalındakı feodal hakimliklərini asılı hala salınması"
+          ],
+          "correct": "Dövlətin sərhədlərini möhkəmləndirmək üçün",
+          "id": 724
+        },
+        {
+          "q": "Mərzban ibn Məhəmmədin ölümündən sonra Salarilər dövləti üçün səciyyəvidir:",
+          "answers": [
+            "Dövlətdə iqta torpaqlarının paylanılması dayandırıldı",
+            "Salarilər dövləti",
+            "Səlcuqlardan asılı vəziyyətə düşdü",
+            "Oğulları ilə qardaşı arasında hakimiyyət uğrunda mübarizə başladı",
+            "Salarilər dövləti süqut etdi"
+          ],
+          "correct": "Salarilər dövləti",
+          "id": 725
+        },
+        {
+          "q": "Atropatena və Albaniyada ellin- yunan mədəniyyəti yayılmışdır:",
+          "answers": [
+            "•",
+            "Antoninin",
+            "Şərqə yürüşü nəticəsində",
+            "",
+            ""
+          ],
+          "correct": "•",
+          "id": 726
+        },
+        {
+          "q": "Eramızın I əsrində Albaniyanı idarə edirdi:",
+          "answers": [
+            "Yerli hökmdarlar",
+            "Parfiya canişini",
+            "Midiya canişıni",
+            "İberlər",
+            "Romalılar"
+          ],
+          "correct": "Yerli hökmdarlar",
+          "id": 727
+        },
+        {
+          "q": "Azərbaycanda sasanilərlə xilafətin köçürmə siyasətində oxşar cəhətdir:",
+          "answers": [
+            "Özlərinə etnik dayaq yaratmaq",
+            "Torpaqsız kəndliləri torpaqla təmin etmək",
+            "Azərbaycana türk axınının qarşısını almaq xristianlara öz dinini qəbul etdirmək yerli əhalini farslaşdırmaq",
+            "",
+            ""
+          ],
+          "correct": "Özlərinə etnik dayaq yaratmaq",
+          "id": 728
+        },
+        {
+          "q": "Cavanşir xəzərlərin Albaniyaya qarətçi yürüşlərinə son qoymaq üçün :",
+          "answers": [
+            "Sasanilərlə ittifaq bağladı",
+            "Sasani şahı ilə hərbi qüvvələrini birləşdirdi",
+            "Xəzər xaqanının qızı ilə evləndi",
+            "Səlcuq sultanı ilə dostluq əlaqələri yarandı",
+            "Ərəb xəlifəsi"
+          ],
+          "correct": "Sasanilərlə ittifaq bağladı",
+          "id": 729
+        },
+        {
+          "q": "Osmanlılara qarşı Ağqoyunlu və Avropa dövlətləri arasında ittifaq quruldu:",
+          "answers": [
+            "1476- cü ildə 1468- ci ildə 1461- ci ildə 1467- ci ildə 1472- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 730
+        },
+        {
+          "q": "1387-ci ildə baş vermiş Çapaqçur döyüşünün nəticəsi:",
+          "answers": [
+            "Toxtamışın qoşunları I İbrahim tərəfindən məğlub edildi. Qara Məhəmməd Əmir Teymurun qüvvələrini məğlub etdi Cəlairi qoşunlarının köməyi ilə Qara Yusif Teymurilərə qalib gəldi Teymurilər Ağqoyunluları məğlub etdilər. Qara Məhəmməd Əmir Teymurla sülh müqaviləsi imzaladı.",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Toxtamışın qoşunları I İbrahim tərəfindən məğlub edildi. Qara Məhəmməd Əmir Teymurun qüvvələrini məğlub etdi Cəlairi qoşunlarının köməyi ilə Qara Yusif Teymurilərə qalib gəldi Teymurilər Ağqoyunluları məğlub etdilər. Qara Məhəmməd Əmir Teymurla sülh müqaviləsi imzaladı.",
+          "id": 731
+        },
+        {
+          "q": "Albaniyada Mehranilər sülaləsinin hakimiyyətinə son qoyuldu:",
+          "answers": [
+            "816- cı ildə 650-ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "816- cı ildə 650-ci ildə",
+          "id": 732
+        },
+        {
+          "q": "Verilmiş cavabların hansı qubalı Fətəli xanın Dərbəndi işğal siyasətini düzgün əks etdirir?",
+          "answers": [
+            "Dərbənd hakiminin qızı ilə evləndi",
+            "Yerli əhalinin müqavimətinə rast gəldi",
+            "Quba xanı şəhəri ələ keçirmək üçün digər azərbaycan xanları ilə ittifaqa girdi",
+            "Dağıstan feodalları ilə saziş bağladı",
+            "Şəhər sənətkarları, kiçik feodal əyanlar və tacirlər onu müdafiə edirdi"
+          ],
+          "correct": "Quba xanı şəhəri ələ keçirmək üçün digər azərbaycan xanları ilə ittifaqa girdi",
+          "id": 733
+        },
+        {
+          "q": "Şeyx Əli xanın dövründə hansı xanlıqlar Quba xanlığının asılılığından çıxdılar?",
+          "answers": [
+            "Şəki, Bakı, Şamaxı Qarabağ,Ərdəbil, Bakı Naxçıvan, Sərab,Şamaxı, Salyan, Meşkin,Ərdəbil Qaradağ, Şəki, Dərbənd",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Şəki, Bakı, Şamaxı Qarabağ,Ərdəbil, Bakı Naxçıvan, Sərab,Şamaxı, Salyan, Meşkin,Ərdəbil Qaradağ, Şəki, Dərbənd",
+          "id": 734
+        },
+        {
+          "q": "Məhəmmədhəsən xan Qacar neçənci ildə Qarabağa hücum etmişdi?",
+          "answers": [
+            "1780- ci ildə 1792- ci ildə 1751- ci ildə 1763- cü ildə 1762- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 735
+        },
+        {
+          "q": "Pənahəli xan hansı Azərbaycan xanlıqlarını ələ keçirməyə çalışırdı?",
+          "answers": [
+            "Naxçıvan, Ərdəbil, Sərab, Quba Şəki, Naxçıvan, Quba, Şamaxı Şamaxı, Naxçıvan , Şəki , Xoy Gəncə, İrəvan, Naxçıvan, Ərdəbil Urmiya, Quba, Şəki, İrəvan",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 736
+        },
+        {
+          "q": "1764- cü ildə İrəvanda tikilmiş memarlıq abidəsi:",
+          "answers": [
+            "Yeddi",
+            "Günbəz türbəsi",
+            "Şirvanşahlar sarayı",
+            "Göy məscid",
+            "Gülüstan qalası"
+          ],
+          "correct": "Günbəz türbəsi",
+          "id": 737
+        },
+        {
+          "q": "Xanlıqlar dövründə şəhər inzibati idarəsinə kim rəhbərlik edirdi?",
+          "answers": [
+            "əsnaf",
+            "Naib kələntər",
+            "Darğa",
+            "Yasovul",
+            ""
+          ],
+          "correct": "əsnaf",
+          "id": 738
+        },
+        {
+          "q": "1.Azərbaycan torpaqlarının bir hissəsi azad edildi. 2.Azərbaycanın Kürdən cənubda yerləşən Xəzəryanı vilayətləri Səfəvi imperatorluğuna qaytarıldı. 3.XVIII əsrin 30-cu illərində bağlanmış müqavilədir.Göstərilənlər aiddir:",
+          "answers": [
+            "Nabur",
+            "Kirmanşah",
+            "İstanbul",
+            "Sankt-Peterburq",
+            "Rəşt"
+          ],
+          "correct": "Sankt-Peterburq",
+          "id": 739
+        },
+        {
+          "q": "1. Xəzər sahilindəki vilayətlər istisna olmaqla Azərbaycanın demək olar ki, bütün ərazisi Osmanlıların hakimiyyəti altına keçdi 2.Şirvanın Osmanlının himayəsində yarımmüstəqil xanlıq statusu təsdiq olundu. Göstərilənlər aiddir:",
+          "answers": [
+            "1723-cü il",
+            "Peterburq sülhünə görə 1639-cu il",
+            "Qəsri-Şirin müqaviləsinə görə 1618-ci il",
+            "Mərənd sülhünə görə 1724-cü il",
+            "İstanbul müqaviləsinə görə 1555-ci il"
+          ],
+          "correct": "1723-cü il",
+          "id": 740
+        },
+        {
+          "q": "Ağqoyunlu tayfalarının geniş yayıldığı ərazilər hesab edilirdi:",
+          "answers": [
+            "Azərbaycanın cənub rayonları, Şərqi Anadolu,Qərbi İran , Dəclə və Fərat çayları vadiləri Anadolunun qərb əraziləri , Gürcüstanın şərq vilayətləri , İran Şimali və Cənubi Azərbaycan, Cənubi Qafqaz Şimali Qafqaz , Xəzərin qərb sahilləri, Göycə gölü ətrafı Kür və Araz çayları arasındakı ərazilər, Van gölü ətrafı, Azərbaycanın şimal rayonları",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Azərbaycanın cənub rayonları, Şərqi Anadolu,Qərbi İran , Dəclə və Fərat çayları vadiləri Anadolunun qərb əraziləri , Gürcüstanın şərq vilayətləri , İran Şimali və Cənubi Azərbaycan, Cənubi Qafqaz Şimali Qafqaz , Xəzərin qərb sahilləri, Göycə gölü ətrafı Kür və Araz çayları arasındakı ərazilər, Van gölü ətrafı, Azərbaycanın şimal rayonları",
+          "id": 741
+        },
+        {
+          "q": "Uzun Həsən Teymuri hökmdarı Əbu Səidlə müharibə etmək üçün ittifaqa girdi:",
+          "answers": [
+            "• Osmanlı sultanı ilə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "• Osmanlı sultanı ilə",
+          "id": 742
+        },
+        {
+          "q": "Əlincə qalasının süqutunun səbəbi:",
+          "answers": [
+            "Qara",
+            "Yusifin",
+            "Əlincə qalasına soxulması",
+            "Daxili çəkişmələr",
+            "Cəlairilərin yürüşü"
+          ],
+          "correct": "Qara",
+          "id": 743
+        },
+        {
+          "q": "Osmanlı dövlətinin Trabzonu tutmasının Ağqoyunlu üçün nəticəsi :",
+          "answers": [
+            "Ağqoyunlu dövləti Qaraqoyunlu və Teymurilərlə yaxınlaşması Ağqoyunlu dövləti Qara dənizə yeganə çıxış yolunu itirdi Avropa dövlətləri ilə diplamatik əlaqələr kəsildi Krımdakı ticarət mərkəzləri ilə əlaqə gücləndi Ağqoyunlu dövləti Aralıq dənizinə yeganə çıxış yolunu itirdi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Ağqoyunlu dövləti Qaraqoyunlu və Teymurilərlə yaxınlaşması Ağqoyunlu dövləti Qara dənizə yeganə çıxış yolunu itirdi Avropa dövlətləri ilə diplamatik əlaqələr kəsildi Krımdakı ticarət mərkəzləri ilə əlaqə gücləndi Ağqoyunlu dövləti Aralıq dənizinə yeganə çıxış yolunu itirdi",
+          "id": 744
+        },
+        {
+          "q": "XIII əsr mədəniyyət nümunəsi hesab olunur:",
+          "answers": [
+            "Bəhmənyarın “Məntiqə dair zinət kitabı” Nizaminin “Xosrov və Şirin ” əsəri Əfzələddin Xaqaninin “Mədain xərabələri” Mahmud Şəbüstərinin “Gülşən-i raz ” əsəri Bərdəi Məhəmmədin”Müxalifətçilərə cavab” əsəri",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 745
+        },
+        {
+          "q": "Monqol ağalığı dövründə Azərbaycanda bazar qiymətlərinin artmasına, ticarət dövriyyəsinin azalmasına, həyat səviyyəsinin aşağı düşməsi ilə əlaqədar şəhər əhalisinin öz yerlərini tərk etməsinə gətirib çıxartdı:",
+          "answers": [
+            "Çaonun tətbiqi",
+            "Vergi islahatı",
+            "Qızıl",
+            "Ordanın yürüşləri",
+            "Hakimiyyət uğrunda ara müharibələri"
+          ],
+          "correct": "Çaonun tətbiqi",
+          "id": 746
+        },
+        {
+          "q": "Monqolların Azərbaycana II yürüşü nəticələndi:",
+          "answers": [
+            "Monqollar Azərbaycanda möhkəmləndilər Monqollar Azərbaycan şəhərlərini qarət etməklə kifayətləndilər Azərbaycan Hülakilər dövlətinin mərkəzlərindən birinə çevrildi Qazan xan yerli feodallarla əlaqələri möhkəmləndirməyə başladı Cəbə və subutay Təbrizi ələ keçirdilər",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Monqollar Azərbaycanda möhkəmləndilər Monqollar Azərbaycan şəhərlərini qarət etməklə kifayətləndilər Azərbaycan Hülakilər dövlətinin mərkəzlərindən birinə çevrildi Qazan xan yerli feodallarla əlaqələri möhkəmləndirməyə başladı Cəbə və subutay Təbrizi ələ keçirdilər",
+          "id": 747
+        },
+        {
+          "q": "Ərəb dövlətində Əməvilər hakimiyyətə gəldikdən sonra inzibati quruluşda edilən dəyşikliyə əsasən Azərbaycan hansı əmirliyə daxil edildi:",
+          "answers": [
+            "Aran Əlcəzirə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Aran Əlcəzirə",
+          "id": 748
+        },
+        {
+          "q": "Eneolit dövründən başlayaraq köməkçi və ikinci dərəcəli təsərrüfat sahəsinə çevrilir?",
+          "answers": [
+            "əkinçilik və sənətkarlıq yaylaq maldarlığı ovçuluq və maldarlıq dulusçuluq və heyvandarlıq ovçuluq və balıqçılıq",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 749
+        },
+        {
+          "q": "Azərbaycanda son tunc dövrü hansı arxeoloji mədəniyyətlər əsasında öyrənilmişdir:",
+          "answers": [
+            "Xocalı -Gəbəbəy, Talış - Muğan, Naxçıvan Boyalı qablar , Naxçıvan, Talış-Muğan Quruçay, Boyalı qablar, Gəncə - Qazax Kür - Araz, Gəncə - Qazax, Kültəpə Qarabağ, Kür- Araz, Quruçay",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Xocalı -Gəbəbəy, Talış - Muğan, Naxçıvan Boyalı qablar , Naxçıvan, Talış-Muğan Quruçay, Boyalı qablar, Gəncə - Qazax Kür - Araz, Gəncə - Qazax, Kültəpə Qarabağ, Kür- Araz, Quruçay",
+          "id": 750
+        },
+        {
+          "q": "Azərbaycan ərazisində müasir insan tipinin formalaşması başa çatmış və ibtidai icma quruluşunun ilkin pilləsi yaranmışdır?",
+          "answers": [
+            "Üst",
+            "Aşel mərhələsində",
+            "Üst paleolit dövründə",
+            "Orta",
+            "Paleolit mərhələsində"
+          ],
+          "correct": "Üst",
+          "id": 751
+        },
+        {
+          "q": "İbtidai icma quruluşunda maldarlıq və əkinçiliyin əsaslı surətdə təşəkkülü və inkişafı hansı dövrdə baş vermişdir:",
+          "answers": [
+            "Tunc dövründə",
+            "Orta paleolitdə",
+            "Alt paleolitdə",
+            "Neolit dövründə",
+            "Mezolit dövründə"
+          ],
+          "correct": "Alt paleolitdə",
+          "id": 752
+        },
+        {
+          "q": "Monqol canişinlərinin, xüsusilə Arqun ağanın Azərbaycanda həyata keçirdiyi siyasətin əsas mahiyyəti:",
+          "answers": [
+            "Feodalların – vassalların köçəri monqol əyanlardan asılılığını gücləndirmək",
+            "Təsərrüfatı gücləndirmək",
+            "Vergiləri artırmaq",
+            "Şəhər əhalisinə divan tutmaq",
+            "Tutduqları ərazilərdə qarətçiliklə məşğul olmaq və əhalini soyub talamaq"
+          ],
+          "correct": "Feodalların – vassalların köçəri monqol əyanlardan asılılığını gücləndirmək",
+          "id": 753
+        },
+        {
+          "q": "Qazan xanın rabitə sahəsində keçirdiyi islahata aid deyil?",
+          "answers": [
+            "Yamlara əmir təyin olundu və onlar lazımi qədər qulluqçularla və atlarla təmin oldu",
+            "Elçilərin və yam işçilərinin yerli əhalidən vəsait alması qərarı qəbul edildi",
+            "Yollarda karvansaralar tikildi və müsafirlərin rəiyyətin evində qalmaları qadağan olundu",
+            "Qazan xan mövcud yarlıqları və paydzaları ləğv etdi",
+            "Bütün əsas yollarda hər 3 fərsəxdən bir rabitə dayanacaqları – «yamlar» yaradıldı"
+          ],
+          "correct": "Yamlara əmir təyin olundu və onlar lazımi qədər qulluqçularla və atlarla təmin oldu",
+          "id": 754
+        },
+        {
+          "q": "1367-ci ildə Cəlairlərin Şirvana yürüşünün əsas nəticəsi:",
+          "answers": [
+            "Şirvan əhalisi Cəlairi ordusuna qalib gələrək müstəqiliyini qorudu. Şirvanşahlar üzərində qələbə qazana bilmədilər Şirvan əhalisi Cəlairlərlə gizli saziş imzaladılar. Şirvanşalar Cəlairlərin vassalına çevrildilər Şirvan ərazisinə girə bilməyən Cəlairlər müharibəni dayandırmağa məcbur oldular.",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 755
+        },
+        {
+          "q": "Monqolların I yürüşü zamanı ələ keçirilən şəhərlər sırasına aid deyil?",
+          "answers": [
+            "Təbriz",
+            "Sərab",
+            "Beyləqan",
+            "Marağa",
+            "Şamaxı"
+          ],
+          "correct": "Təbriz",
+          "id": 756
+        },
+        {
+          "q": "XI əsrin əvvəllərində səlcuq türkləri əvvəlki türk axınlarından fərqli olaraq Azərbaycana hansı yolla gəlmişlər?",
+          "answers": [
+            "Şimaldan Dərbənd yolu ilə Ölkənin qərbindən İrəvan yolu ilə Gürcüstan yolu ilə Ölkənin cənubundan İran yolu ilə Qərbdən Osmanlı yolu ilə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 757
+        },
+        {
+          "q": "Şirvanşahlar, Sacilər, Salarilər, Şəddadilər və Rəvvadilər dövlətlərindən hansıları ara müharibələri və daxili mübarizə nəticəsində süqut etmişdir?",
+          "answers": [
+            "Sacilər, Salarilər; Şirvanşahlar, Rəvvadilər; Şirvanşahlar, Sacilər; Salarilər, Şəddadilər; Sacilər, Şəddadilər;",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Sacilər, Salarilər; Şirvanşahlar, Rəvvadilər; Şirvanşahlar, Sacilər; Salarilər, Şəddadilər; Sacilər, Şəddadilər;",
+          "id": 758
+        },
+        {
+          "q": "Hansı Saci hökmdarının dövründə maliyyə və vergi sahəsində obyektiv siyasət ölkədə iqtisadiyyatın dirçəlməsinə və əhalinin artmasına səbəb oldu?",
+          "answers": [
+            "İbrahimin dövründə",
+            "Məhəmmədin dövründə",
+            "Əbu",
+            "Sac",
+            "Divdadın vaxtında"
+          ],
+          "correct": "Sac",
+          "id": 759
+        },
+        {
+          "q": "Hansı Sasani hökmdarının ölümündən sonra Albaniya müstəqil xarici siyasət yürütmüşdür:",
+          "answers": [
+            "Balaşın I Şapurun II Yezdegirdin I Yezdəgirdin II Şapurun",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Balaşın I Şapurun II Yezdegirdin I Yezdəgirdin II Şapurun",
+          "id": 760
+        },
+        {
+          "q": "Azərbaycanda islamın yayılması prosesi hansı ərazilərdə daha erkən baş vermişdi:",
+          "answers": [
+            "Qəbələdə, Qarabağda, Xəzər sahilində Kür və Araz çayları boyunda, Qarabağda, Xəzər sahilində Arranda, Dərbəndd, Muğanda, Naxçıvanda Naxçıvanda, Mildə, Muğanda, Qarabağda Muğanda, Mildə, Xəzər sahilində, Kür və Araz çayları boyunda",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 761
+        },
+        {
+          "q": "Qaynaqlarda “albanlara hökmdar verən” Roma imperatoru kim olmuşdur:",
+          "answers": [
+            "Avqust",
+            "Trayan",
+            "Valent",
+            "Valerian",
+            "Avrelian"
+          ],
+          "correct": "Avqust",
+          "id": 762
+        },
+        {
+          "q": "Alban hökmdarı Urnayr hansı Sasani - Roma qarşılaşmalarında iştirak etmişdi:",
+          "answers": [
+            "Amid, Dzirav Suzian, Amid Kaar, Dzirav Bələncər , Dzirav Qədsiyyə,Bələncər,",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Amid, Dzirav Suzian, Amid Kaar, Dzirav Bələncər , Dzirav Qədsiyyə,Bələncər,",
+          "id": 763
+        },
+        {
+          "q": "Torpaqqala, Govurqala , Cavanşir qalaları hansı dövrdə tikilmişdi:",
+          "answers": [
+            "Erkən orta əsrlərdə",
+            "Antik dövrdə",
+            "XIII əsrdə",
+            "XV-",
+            "XVI əsrlərdə"
+          ],
+          "correct": "Erkən orta əsrlərdə",
+          "id": 764
+        },
+        {
+          "q": "Alban hökmdarı Cavanşir cənubdan gələn təhlükəni Albaniyadan sovuşdurmaq məqsədilə:",
+          "answers": [
+            "Ərəb xilafəti ilə yaxınlaşmaq yolun seçdi",
+            "Xəzər xaqanlığı ilə müharibəyə başladı",
+            "667-ci ildə Bizans imperiyası ilə müqavilə bağladı",
+            "Xəzər xaqanının göndərdiyi qoşunları ölkənin cənubunda yerləşdirdi",
+            "Hun və digər köçəri türk tayfalarını ölkənin cənub sərhədlərində yerləşdirdi."
+          ],
+          "correct": "Ərəb xilafəti ilə yaxınlaşmaq yolun seçdi",
+          "id": 765
+        },
+        {
+          "q": "Müxtəlif dövrlərdə müxtəlif şəkildə olmuşdu, hansı məbləğdə və formada alınmasından asılı olmayaraq bu vergi kəndlilər üçün ağır yük idi:",
+          "answers": [
+            "Dəhyek və ulafa vergilərinin məbləği və toplanma qaydası",
+            "Bəhrə vergisinin məbləği və toplanma qaydası",
+            "Tamğa vergisinin məbləği və onun toplanma qaydası",
+            "Xəracın məbləği və toplanma qaydası",
+            "Sərkəllə vergisi və onun toplanma qaydası"
+          ],
+          "correct": "Tamğa vergisinin məbləği və onun toplanma qaydası",
+          "id": 766
+        },
+        {
+          "q": "Epiqrafik abidələr:",
+          "answers": [
+            "Piktoqrafik işarələrin olduğu abidə növüdür mixi yazılar həkk olunmuş abidələrdir",
+            "Pəhləvi dilində yazı həkk olunmuş abidələrdir",
+            "Daş, qala divarı üzərində həkk olunan yazıdan ibarətdir",
+            "Antik dövrə aid abidə növüdür",
+            ""
+          ],
+          "correct": "Daş, qala divarı üzərində həkk olunan yazıdan ibarətdir",
+          "id": 767
+        },
+        {
+          "q": "Azərbaycanda ilkin şəhər mədəniyyəti təşəkkül tapır?",
+          "answers": [
+            "•",
+            "İlk",
+            "Tunc dövründə",
+            "",
+            ""
+          ],
+          "correct": "•",
+          "id": 768
+        },
+        {
+          "q": "Azərbaycanın qədim tarixi barədə məlumat vermişlər:",
+          "answers": [
+            "Strabon, Plini, Arrian, Ptolomey, Tassit, Ammian Marsellin və başqaları. Herodot, Strabon, Plini, Aristotel, Makrobian, Barronna, Ptolomey və başqaları. Herodot, Plini, Musa Kalankatlı, Aristotel, Arrian, Tassit və başqaları. Strabon, Plini, Arrian, Herodot, Ptolomey, Sozigen, Musa Kalankatlı və başqaları Ptolomey, Makrobian, Əl – İstəxəri, Musa Kalankatlı, Heradot, Platon və başqaları.",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Strabon, Plini, Arrian, Ptolomey, Tassit, Ammian Marsellin və başqaları. Herodot, Strabon, Plini, Aristotel, Makrobian, Barronna, Ptolomey və başqaları. Herodot, Plini, Musa Kalankatlı, Aristotel, Arrian, Tassit və başqaları. Strabon, Plini, Arrian, Herodot, Ptolomey, Sozigen, Musa Kalankatlı və başqaları Ptolomey, Makrobian, Əl – İstəxəri, Musa Kalankatlı, Heradot, Platon və başqaları.",
+          "id": 769
+        },
+        {
+          "q": "Ön Qafqazdan başqa Cənubda Anadolu yaylası, Şimalda Çeçen-İnquş və Şimali Osetiyaya qədər olan ərazilərdə hansı mədəniyyətin izlərinə təsadüf olunmuşdur?",
+          "answers": [
+            "Kür –",
+            "Araz",
+            "Kültəpə",
+            "Talış -",
+            "Muğan"
+          ],
+          "correct": "Kür –",
+          "id": 770
+        },
+        {
+          "q": "Səfəvi dövlətində ağır iqtisadi və siyasi böhran nə zaman baş vermişdir:",
+          "answers": [
+            "XVIII əsrin əvvəllərində",
+            "XVIII əsrin ortalarında",
+            "XVI əsrin sonlarında",
+            "XVII əsrin ortalarında",
+            "XVI əsrin əvvəllərində"
+          ],
+          "correct": "XVIII əsrin əvvəllərində",
+          "id": 771
+        },
+        {
+          "q": "I Pyotrun Azərbaycanın Xəzəryanı bölgələrini ələ keçirmək üçün bəhanə oldu:",
+          "answers": [
+            "Şirvan üsyanı vaxtı rus tacirlərinin zərər çəkməsi",
+            "Xəzəryanı bölgələrə",
+            "Osmanlının daxil olması",
+            "Xəzəryanı bölgənin əhalisini",
+            "Səfəvi zülmündən xilas etmək"
+          ],
+          "correct": "Şirvan üsyanı vaxtı rus tacirlərinin zərər çəkməsi",
+          "id": 772
+        },
+        {
+          "q": "Səfəvi hökmdarı Şah sultan Hüseynin dövründə :",
+          "answers": [
+            "Şeybanilər ölkə ərazisinə hücüm etdilər",
+            "Rus qoşunları",
+            "Səfəvi dövlətinin ərazisnə hücum etdi",
+            "Dövlət xəzinəsi boşaldı",
+            "Mərkəzi hakimiyyət möhkəmləndi"
+          ],
+          "correct": "Rus qoşunları",
+          "id": 773
+        },
+        {
+          "q": "Ağa Məhəmməd xan Qacarın 1795- ci ildə Tiflisə yürüşü zamanı ona kömək edən Azərbaycan xanı:",
+          "answers": [
+            "Şamaxı xanı Mustafa xan Gəncəli Cavad xan Qubalı Şeyxəli xan Naxçıvan xanı Kəlbalı xan Şəki xanı Səlim xan",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Şamaxı xanı Mustafa xan Gəncəli Cavad xan Qubalı Şeyxəli xan Naxçıvan xanı Kəlbalı xan Şəki xanı Səlim xan",
+          "id": 774
+        },
+        {
+          "q": "1755 – ci ildə Hacı Çələbi Şirvana hücumu zamanı hansı xanlıqların birləşmiş qüvvələrinə məglub oldu?",
+          "answers": [
+            "Şamaxı və Quba Qarabag və Gəncə Gəncə və Şamaxı Şamaxı və Ərdəbil Quba və Qarabağ",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Şamaxı və Quba Qarabag və Gəncə Gəncə və Şamaxı Şamaxı və Ərdəbil Quba və Qarabağ",
+          "id": 775
+        },
+        {
+          "q": "Gavduşan döyüşü baş vermişdir:",
+          "answers": [
+            "Qubalı Fətəli xanla Dərbənd hakimi Məhəmmədhüseyn xanın qoşunu arasında Qubalı Fətəli xanla rus qoşunları arasında Qubalı Fətəli xanla Azərbaycan və bir sıra Dağıstan hakimləri arasında Qubalı Fətəli xanla Məhəmmədhəsən xan Qacarın qoşunları arasında Qubalı Fətəli xanın birləşdiurmə siyasətinə Azərbaycan xanlarının tərəfdar çıxması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 776
+        },
+        {
+          "q": "İbrahimxəlil xan öz təsirini hansı xanlıqlar üzərində saxlayırdı?",
+          "answers": [
+            "Şirvan , Şəki , Təbriz, Xoy Şirvan , Şəki , Təbriz, İrəvan Qaradağ, Ərdəbil, Naxçıvan, Gəncə Marağa, Qaradağ, Xoy , Quba Qarabağ, Naxçıvan , Xoy, Ərdəbil",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 777
+        },
+        {
+          "q": "Qubalı Fətəli xanla Şəkili Hüseyn xan arasında 1769-cü ildə bağlanmış müqaviləyə görə:",
+          "answers": [
+            "Ağsu ərazisindən vergi toplamaq Şəki xanlığının ixtiyarına keçdi",
+            "Fətəli xan Salyan və Dərbənd ərazisindən öz qoşununu çıxarmağı öhdəsinə götürdü",
+            "Şəki xanı Gürcü və Dağıstan feodallarından kömək almayacağını bildirdi",
+            "Quba və Şəki xanlıqları Şamaxı ərazisində iki hakimiyyətliliyi saxladılar",
+            "Hüseyn xan Şamaxının işlərinə qarışmamağı, Fətəli xana hərbi qüvvə, lazım olduqda qoşun verməyi öhdəsinə götürdü."
+          ],
+          "correct": "Quba və Şəki xanlıqları Şamaxı ərazisində iki hakimiyyətliliyi saxladılar",
+          "id": 778
+        },
+        {
+          "q": "Hacı Çələbinin Azərbaycanı vahid xanlıq şəklində birləşdirə bilməməsinin əsas səbəbi:",
+          "answers": [
+            "ölkədə siyasi birləşmə üçün iqtisadi əsasın olmaması Şəki xanının şəxsi nüfuzunun aşagı olması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "ölkədə siyasi birləşmə üçün iqtisadi əsasın olmaması Şəki xanının şəxsi nüfuzunun aşagı olması",
+          "id": 779
+        },
+        {
+          "q": "\"Qızılqaya xəyanəti \" zamanı Şəki xanı Hacı Cələbi xan:",
+          "answers": [
+            "Kartli-",
+            "Kaxetiya çarı ilə ittifaq bağladı",
+            "Gəncəni gürcülərdən müdafiə edərək qorudu",
+            "Döyüşdə gürcü çarını məğlub edərək girov düşmüş xanları azad etdi",
+            "Geri çəkilərək"
+          ],
+          "correct": "Kaxetiya çarı ilə ittifaq bağladı",
+          "id": 780
+        },
+        {
+          "q": "XIII əsrin 20 - ci illərində Azərbaycana monqollarla bərabər hücum etmişdi:",
+          "answers": [
+            "xarəzmşahlar və ruslar alanlar və sərirlər hunlar və qıpçaqlar qıpçaqlar və gürcülər ruslar və xəzərlər",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 781
+        },
+        {
+          "q": "Hülakilər dövlətinin zəifləməsindən istifadə edərək hakimiyyət uğrunda mübarizəyə qoşulan ən qüdrətli feodal qrupu idi :",
+          "answers": [
+            "Qızıl",
+            "Ordalılar",
+            "Çobanilər",
+            "Qaraqoyunlular",
+            "Cəlarilər"
+          ],
+          "correct": "Qızıl",
+          "id": 782
+        },
+        {
+          "q": "II Vaçe II Yezdəgirdin vəfatından sonra Sasanilərdə baş verən hadisələrdən istifadə edərək:",
+          "answers": [
+            "Albaniyada sasani mərzbanlığını ləğv etdi",
+            "İberiya ilə ittifaqa girərək sasanilərə qarşı mübarizəyə başladı",
+            "Bizansın göndərdiyi elçiləri qəbul edib, saziş imzaladı",
+            "Albaniyada xristianlığı yaymaq məqsədilə sasani hakimiyyətinin tabeliyindən çıxdı",
+            "Albaniyanın qərb vilayətlərində öz müstəqilliyini bərpa etdi"
+          ],
+          "correct": "Bizansın göndərdiyi elçiləri qəbul edib, saziş imzaladı",
+          "id": 783
+        },
+        {
+          "q": "Azərbaycana monqolların ikinci yürüşündə əsas məqsədi idi:",
+          "answers": [
+            "Şirvanın müstəqilliyinə son qoymaq",
+            "Azərbaycanda möhkəmlənmək",
+            "Xarəzmşah",
+            "Cəlallədini",
+            "Azərbaycandan çıxışdırıb çıxartmaq"
+          ],
+          "correct": "Şirvanın müstəqilliyinə son qoymaq",
+          "id": 784
+        },
+        {
+          "q": "Romalıların Qədim Albaniyada olduqlarını sübut edir:",
+          "answers": [
+            "Ərəb müəlliflərinin əsərlərindəki məlumat",
+            "Adrianın alban hökmdarlarına qiymətli hədiyyələr göndərilməsi",
+            "Oktavianın adına",
+            "Qobustanda üzərində latın dilində yazı olan daş kitabə",
+            "Şəkinin"
+          ],
+          "correct": "Adrianın alban hökmdarlarına qiymətli hədiyyələr göndərilməsi",
+          "id": 785
+        },
+        {
+          "q": "E.ə. 66-cı ildə Kür çayı sahilində baş vermiş döyüşün nəticəsi:",
+          "answers": [
+            "Parfiyalılar və atropatenalılar qalib gəldi",
+            "Romalılar qalib gəldi",
+            "Döyüş nəticəsiz başa çatdı",
+            "Döyüş yarımçıq dayandırıldı",
+            "Albanlar qalib gəldi"
+          ],
+          "correct": "Parfiyalılar və atropatenalılar qalib gəldi",
+          "id": 786
+        },
+        {
+          "q": "Atropatena ilə Parfiya arasında münasibətlərin pozulmasının səbəbi:",
+          "answers": [
+            "Atropatenanın Selevkilərin tərəfinə keçməsi Atropatenanın həm Romaya , həm də Parfiyaya qarşı eyni mövqedə dayanması Parfiyanın Atropatenanı bütövlükdə özünə tabe etməyə çalışması Atropatena hökmdarlarının xarici syasətdə Romaya meyl etməsi Romanın mülklərini ələ keçirmək uğrunda mübarizə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 787
+        },
+        {
+          "q": "Eramızın 20- ci ilində Atropatena hansı dövlətin hakimiyyəti altına düşdü:",
+          "answers": [
+            "Parfiyanın",
+            "Selevkilərin",
+            "Yunanların",
+            "Midiyalıların",
+            "Romalıların"
+          ],
+          "correct": "Parfiyanın",
+          "id": 788
+        },
+        {
+          "q": "E.ə IX əsrdən etibarən Manna torpaqlarını ələ keçirmək uğrunda bir- biri ilə mübarizə aparırdı:",
+          "answers": [
+            "Urartu və Aşşur Aşşur və Babil Midiya və Babil Babil və Urartu İskit və Midiya",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Urartu və Aşşur Aşşur və Babil Midiya və Babil Babil və Urartu İskit və Midiya",
+          "id": 789
+        },
+        {
+          "q": "Orta tunc dövrünə aid deyil:",
+          "answers": [
+            "İkinci böyük ictimai əmək bölgüsü baş verdi",
+            "Ayaqla hərəkətə gətirilən dulus çarxından istifadə olundu",
+            "Sənətkarlıq müstəqil sahəyə çevrildi",
+            "Şəhər tipli yaşayış məskənləri yarandı",
+            "Boyalı qablar mədəniyyəti formalaşdı"
+          ],
+          "correct": "İkinci böyük ictimai əmək bölgüsü baş verdi",
+          "id": 790
+        },
+        {
+          "q": "Kür- Araz mədəniyyəti üçün səciyyəvidir:",
+          "answers": [
+            "Əhalinin oturaq həyata keçməsi",
+            "Təsərrüfatda kişi əməyinin ön plana keçməsi",
+            "Ayaqda hərəkətə gətirilən dulus çarxından istifadə edilməsi",
+            "İlk dəfə metal əmək alətlərindən istifadə edilməsi",
+            "Üçüncü ictimai əmək bölgüsünün baş verməsi"
+          ],
+          "correct": "Əhalinin oturaq həyata keçməsi",
+          "id": 791
+        },
+        {
+          "q": "Azərbaycan Cəlairilər dövlətinin tərkibinə daxil edildi:",
+          "answers": [
+            "1359 - cu ildə 1372 - ci ildə 1382- ci ildə 1357- ci ildə 1410- cu ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "1359 - cu ildə 1372 - ci ildə 1382- ci ildə 1357- ci ildə 1410- cu ildə",
+          "id": 792
+        },
+        {
+          "q": "Azıxantrop nə zaman yaşamışdır?",
+          "answers": [
+            "200 min il bundan əvvəl 300 min il bundan əvvəl",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "200 min il bundan əvvəl 300 min il bundan əvvəl",
+          "id": 793
+        },
+        {
+          "q": "Azərbaycan tarixi hansı qaynaqlar - mənbələr əsasında öyrənilir?",
+          "answers": [
+            "qəbir abidələri, qayaüstü abidələr və yazılı abidələr arxeoloji və yazılı abidələr fauna və flora qalıqları heyvan və bitki qalıqları, qayaüstü rəsmlər, qəbir abidələri, yaşayış yerləri qədim yaşayış yerləri və qəbir abidələri",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "qəbir abidələri, qayaüstü abidələr və yazılı abidələr arxeoloji və yazılı abidələr fauna və flora qalıqları heyvan və bitki qalıqları, qayaüstü rəsmlər, qəbir abidələri, yaşayış yerləri qədim yaşayış yerləri və qəbir abidələri",
+          "id": 794
+        },
+        {
+          "q": "Quba xanı Fətəli xanın “nigah diplomatiyasından” istifadə edərək işğal etdiyi xanlıq necə adlanır?",
+          "answers": [
+            "Gəncə",
+            "Bakı",
+            "Şəki",
+            "Şamaxı",
+            "Qarabağ"
+          ],
+          "correct": "Gəncə",
+          "id": 795
+        },
+        {
+          "q": "Quba xanı Fətəli xan öz sərhədlərini möhkəmləndirmək məqsədilə:",
+          "answers": [
+            "Cəngavər şahsevənlərin bir hissəsini xanlıq ərazisinə köçürtdü",
+            "Rusiyanın təəbəliyinə keçdi",
+            "Qonşularla dostluq münasibətlərini inkişaf etdirdi",
+            "Gürcüstanla hərbi saziş bağladı",
+            "Osmanlı dövlətinin"
+          ],
+          "correct": "Cəngavər şahsevənlərin bir hissəsini xanlıq ərazisinə köçürtdü",
+          "id": 796
+        },
+        {
+          "q": "Quba xanı Fətəli xanın Gurcu çarı II İrakli ilə ittifaqının əsasını xarici mudaxilələrdən qorunmaqla yanaşı daha hansı məqsədlər təşkil edirdi?",
+          "answers": [
+            "Öz hakimiyyətini cənub xanlıqlarına yaymaq cənub – qərb torpaqlarını işğal etmək",
+            "Vahid mərkəzləşmiş dövlət yaratmaq qonşu xanlıqlarla dostluq münasibətləri saxlamaq",
+            "Azərbaycanın şimal ərazilərini əlində saxlamaq",
+            "",
+            ""
+          ],
+          "correct": "Öz hakimiyyətini cənub xanlıqlarına yaymaq cənub – qərb torpaqlarını işğal etmək",
+          "id": 797
+        },
+        {
+          "q": "Səfəvi dövlətində mövcud olan Ali məclisə aiddir:",
+          "answers": [
+            "xarici siyasət məsələlərinə baxan dövlət qurumu idi şəriət qaydalarına əməl edilməsinə nəzarət edən dövlət qurumu idi icraedici fəaliyyət ilə məşğul olan ali hakimiyyət orqanı idi məşvərətçi səsə malik dövlət qurumu idi dövlət təhlükəsizliyi məsələlərini həll edən hərbi-inzibati orqan idi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 798
+        },
+        {
+          "q": "I Şah Təhmasib tərəfindən Şirvana bəyləybəyi təyin olunan Əlqas Mirzənin müstəqil dövlət qurmaq çəhdlərinin qarşısı alındı:",
+          "answers": [
+            "1547- ci ildə 1545- cu ildə 1567- ci ildə 1534- cü ildə 1552- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "1547- ci ildə 1545- cu ildə 1567- ci ildə 1534- cü ildə 1552- ci ildə",
+          "id": 799
+        },
+        {
+          "q": "1468-ci ildə Azərbaycana hücum etmiş Teymuri Əbu Səidə qarşı mübarizə aparmaq üçün Ağqoyunlu Uzun Həsən hansı tədbiri gördü:",
+          "answers": [
+            "Feodal əyanları üzərinə yeni vergilər qoydu Qaraqoyunlulardan müttəfiq kimi istifadə etdi Trabzon imperatorundan iqtisadi yardım istədi Şirvanşah Fərrux Yasar və Ərdəbil hökmdarı Şeyx Heydərlə ittifaqa girdi Osmanlı Sultanı II Mehmetə kömək üçün müraciət etdi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 800
+        },
+        {
+          "q": "Ağqoyunlu dövlətinin Avropa dövlətləri ilə münasibətlərinin qurulmasına mühüm təsir göstərən amil idi:",
+          "answers": [
+            "Teymuriləri",
+            "Azərbaycandan çıxartmaq üçün",
+            "Osmanlı sultanı",
+            "II",
+            "Mehmetin ağır gömrük siyasəti"
+          ],
+          "correct": "Teymuriləri",
+          "id": 801
+        },
+        {
+          "q": "1395- ci ildə dağılan Qaraqoyunlu ittifaqını yenidən bərpa etdi:",
+          "answers": [
+            "İsfəndiyar",
+            "Qara",
+            "Yusif",
+            "Bayram xoca",
+            "Cahanşah"
+          ],
+          "correct": "İsfəndiyar",
+          "id": 802
+        },
+        {
+          "q": "Rəvvadilər dövləti öz müstəqilliyini itirərək səlcuqların hakimiyyəti altına keçdi?",
+          "answers": [
+            "1088-cü ildə 1227-ci ildə 1065-ci ildə 1037-ci ildə 1055-ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 803
+        },
+        {
+          "q": "Atropatenanın Parfiya ilə birgə Romaya qarşı apardığı döyüş neçənci ildə baş vermişdir:",
+          "answers": [
+            "e.ə 53- cü ildə e.ə. 66- cı ildə e.ə.35- ci ildə e.ə.220- ci ildə e.ə. 65- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "e.ə 53- cü ildə e.ə. 66- cı ildə e.ə.35- ci ildə e.ə.220- ci ildə e.ə. 65- ci ildə",
+          "id": 804
+        },
+        {
+          "q": "Albaniya ilə dostluq münasibətləri saxlayan Roma imperatoru idi:",
+          "answers": [
+            "Adrian",
+            "II",
+            "İrakli",
+            "Trayan",
+            "Foka"
+          ],
+          "correct": "Adrian",
+          "id": 805
+        },
+        {
+          "q": "İndiki Şimali Azərbaycan və Dağıstanın cənub bölgələrini əhatə edən qədim dövlətimiz adlanırdı:",
+          "answers": [
+            "Şirvanşahlar",
+            "Atropatena",
+            "Sacilər",
+            "Albaniya",
+            "Manna"
+          ],
+          "correct": "Sacilər",
+          "id": 806
+        },
+        {
+          "q": "Cənubi Azərbaycan, İran Kürdüstanı və Şimali Azərbaycanın müəyyən hissəsini əhatə edən qədim dövlətimiz adlanırdı:",
+          "answers": [
+            "Albaniya",
+            "Kimmer- skit padşahlığı",
+            "Aratta",
+            "Atropatena",
+            "Manna"
+          ],
+          "correct": "Aratta",
+          "id": 807
+        },
+        {
+          "q": "Mannanın Assuriya ilə ittifaqı hansı Manna hökmdarının dövründə pozuldu:",
+          "answers": [
+            "• İranzunun",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "• İranzunun",
+          "id": 808
+        },
+        {
+          "q": "Azərbaycanın hansı dövlətinin etnik quruluşunda sakasen, mük, kaspi, qel, uti tayfaları təmsil olunurdular:",
+          "answers": [
+            "Manna",
+            "Sacilər",
+            "Aratta",
+            "Eldəgizlər",
+            "Albaniya"
+          ],
+          "correct": "Eldəgizlər",
+          "id": 809
+        },
+        {
+          "q": "Üst paleolitin xarakterik xüsusiyyətləri hansı bənddə düzgün əks edilmişdir:",
+          "answers": [
+            "Oturaq həyata keçid və nitqin yaranması",
+            "Ox və yayın kəşvi , patriarxatın formalaşması",
+            "Mikrolit alətlərdən geniş istifadə olunması, maldarlığın yaranması",
+            "Deşici əmək alətlərinin üstün yer tutması və toxuculuğun kəşvi",
+            "Qəbilə quruluşunun yaranması və müasir insan tipinin formalaşması"
+          ],
+          "correct": "Deşici əmək alətlərinin üstün yer tutması və toxuculuğun kəşvi",
+          "id": 810
+        },
+        {
+          "q": "Azərbaycanda son tunc və ilk dəmir dövrü:",
+          "answers": [
+            "e.ə. XVII - XV əsrlər e.ə. X - VIII əsrlər e.ə. X - II əsrlər e.ə. XIV - VIII əsrlər e.ə. VII - V əsrlər",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 811
+        },
+        {
+          "q": "Azərbaycanda qədim incəsənətin çiçəklənmə dövrü hesab edilir:",
+          "answers": [
+            "Erkən və orta aşel dövrü",
+            "Neolit",
+            "Üst paleolit",
+            "Mezolit",
+            "Orta tunc dövrü"
+          ],
+          "correct": "Mezolit",
+          "id": 812
+        },
+        {
+          "q": "Nəsli qəbilə quruluşunun əsasını təşkil edirdi:",
+          "answers": [
+            "eyni dildə danışan bir neçə tayfanın birliyi əqli və fiziki cəhətdən inkişaf etmiş tayfaların birliyi eyni dildə danışan bir neçə qəbilələrin birliyi bir neçə insan sürüsünün vahid birliyi qan qohumluğuna malik insanların qəbilə birliyi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 813
+        },
+        {
+          "q": "Quriya,Menqreliya, İmeretiyanın Osmanlılara,Mesxiya, Kartli , Kaxetiyanın Səfəvi nəzarətinə keçməsini təsdiqləyən sülh necə adlanır:",
+          "answers": [
+            "Sərab",
+            "Mərənd",
+            "İstanbul",
+            "Qəsri-",
+            "Şirin"
+          ],
+          "correct": "Qəsri-",
+          "id": 814
+        },
+        {
+          "q": "Şah I Təhmasibin Səfəvilər dövlətinin mərkəzləşdirmə siyasəti nəticəsində Şəkini özünə tabe etdi:",
+          "answers": [
+            "1538- ci ildə 1534- cü ildə 1565- ci ildə 1551- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 815
+        },
+        {
+          "q": "I Şah İsmayıl Mərv qələbəsi ilə hansı əraziləri Səfəvilər dövlətinə qatdı:",
+          "answers": [
+            "Qəzvindən Mavərənnəhrə qədər Ərməniyyədən Gilana qədər Xorasandan Amu Dəryaya qədər Malatiyyadan Qarahisara qədər Mərvdən Nişapura qədər",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 816
+        },
+        {
+          "q": "Şeyx Cüneydin 1460 - cı il Şirvana və Dağıstana səfərı nəticələndi:",
+          "answers": [
+            "Şirvanşahları məğlub edərək Ərdəbil şeyxiliyinin nüfuzunu artırdı Şeyx Cüneyd çərkəzlərin hücumuna məruz qalaraq öldürüldü Şirvanşah I Xəlilüllah və Cahanşah ittifaqına qarşı mübarizədə məğlub oldu Şirvanşahların paytaxtını ələ keçirdi Ağqoyunlu hökmdarından gözlədiyi dəstəyi ala bilmədiyi üçün geri çəkildi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 817
+        },
+        {
+          "q": "Diyarbəkiri mərkəz seçərək Ağqoyunlu bəyliyini möhkəmləndirmişdi:",
+          "answers": [
+            "Pəhləvan bəy Cahahgir Mirzə Uzun Həsən Əlaəddin Turəli bəy Qara Yulluq Osman bəy",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 818
+        },
+        {
+          "q": "1421- ci ildə baş vermiş Alaşkerd döyüşü nəticələnmişdi:",
+          "answers": [
+            "Qaraqoyunlular Şirvanşahlara kömək etmiş , lakin döyüş hər iki tərəf üçün nəticəsiz bitmişdi Teymuri Şahrux məğlub olmuş və qoşunlarını Azərbaycandan çəkmişdi Döyüş Teymuri qüvvələrinin dağıdılması və yalnız Qarabağ ərazisinin itirilməsi ilə sona çatmışdı Qaraqoyunlular qalib gəlmiş və Herata qədər əraziləri ələ keçirmişdilər Qaraqoyunlular məğlub olmuş və Şahruxun ali hakimiyyətini tanımışdı",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 819
+        },
+        {
+          "q": "Qara Yusif və Şirvanşah İbrahim arasında Kür çayı yaxınlığında döyüş baş vermişdi:",
+          "answers": [
+            "1408- ci ildə 1421- ci ildə 1417- ci ildə 1412- ci ildə 1406- cı ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 820
+        },
+        {
+          "q": "Qaraqoyunlu dövlətinin əhatə etdiyi ərazilər hansı bənddə düzgün əks edilib:",
+          "answers": [
+            "Dərbənddən Dəclə və Fərat çaylarına qədər Kürdən cənubda Azərbaycan torpaqları , İraq, Suriya və Misir Gilandan Qəzvinə qədər, Həmədan və İsfahan İndiki Şimali Azərbaycan ərazisi və Ərməniyyə Şirvanşahlar istisna olmaqla Azərbaycan torpaqları , Şərqi Anadolu,Gürcüstanın bir hissəsi, İran və İraq",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 821
+        },
+        {
+          "q": "Mərkəzi Van şəhəri olmaqla Qaraqoyunlu bəyliyini yaratmışdı:",
+          "answers": [
+            "Qara Yusif Əbu Səid Qara İskəndər Qara Məhəmməd Cahanşah",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 822
+        },
+        {
+          "q": "Monqollar dövründə təsərrüfatın idarəsi həyata keçirilirdi:",
+          "answers": [
+            "Qazilər dördlüyü tərəfindən",
+            "Tümən sistemi ilə",
+            "Divan sistemi vasitəsilə",
+            "Örüş siyasəti ilə icarə sistemi ilə",
+            ""
+          ],
+          "correct": "Tümən sistemi ilə",
+          "id": 823
+        },
+        {
+          "q": "1231 - ci ildə başlayan II Monqol yürüşü necə nəticələnir:",
+          "answers": [
+            "1232- ci ildə monqolların",
+            "Dərbənddən",
+            "Orta",
+            "Asiyaya qayıtması ilə 1235- ci ildə",
+            "Gəncənin ələ keçirilməsi ilə 1357- ci ildə bütün"
+          ],
+          "correct": "Asiyaya qayıtması ilə 1235- ci ildə",
+          "id": 824
+        },
+        {
+          "q": "Monqollar Şirvanın mərkəzi Şamaxını ələ keçirdilər:",
+          "answers": [
+            "1225- ci ildə 1221- ci ildə 1220- ci ildə 1223- cü ildə 1222- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 825
+        },
+        {
+          "q": "Xarəzmşah Cəlaləddin Azərbaycanı işğal etdi:",
+          "answers": [
+            "1223- cü ildə 1227- ci ildə 1231 - ci ildə 1225- ci ildə 1222- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 826
+        },
+        {
+          "q": "Azərbaycan 1239- cu ildə monqollar tərəfindən ələ keçirildikdən sonra :",
+          "answers": [
+            "Qızıl",
+            "Ordanın nəzarətinə keçdi",
+            "Abaqa xanın hakimiyyət dairəsinə daxil edildi",
+            "Ali monqol xaqanlığının təyin etdiyi canişinlər tərəfindən idarə edilirdi",
+            "Münke xan tərəfindən idarə edilməyə başladı"
+          ],
+          "correct": "Ordanın nəzarətinə keçdi",
+          "id": 827
+        },
+        {
+          "q": "Monqolların Azərbaycana I yürüşü həyata keçirilmişdi:",
+          "answers": [
+            "1223- 1225- ci illərdə 1256-1357- ci illərdə 1231-1239- cu illərdə 1220-1222- ci illərdə 1220- 1225- ci illərdə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 828
+        },
+        {
+          "q": "Rusların Azərbaycana 944- cü il yürüşünün mahiyyəti hansı bənddə əks olunur:",
+          "answers": [
+            "Dərbəndi tutmaq və oradan",
+            "Şirvana keçmək",
+            "Şirvanda möhkəmlənmək",
+            "Yezidiyyəni tutmaq və böyük qırgınlar törətmək",
+            ""
+          ],
+          "correct": "Dərbəndi tutmaq və oradan",
+          "id": 829
+        },
+        {
+          "q": "Gəncənin müdafiəsini möhkəmləndirmək üçün\"Gəncə qapılarının\" düzəldilməsi haqqında əmr vermişdi:",
+          "answers": [
+            "Məhəmməd ibn Şəddad I Fəzl Ləşkəri Əbləsüvar Şavur III Fəzl",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 830
+        },
+        {
+          "q": "Şəmsəddin Eldənizin dövründə Atabəylər dövlətinin ərazisi əhatə edirdi:",
+          "answers": [
+            "•",
+            "Naxçıvandan",
+            "Təbrizə qədər",
+            "",
+            ""
+          ],
+          "correct": "•",
+          "id": 831
+        },
+        {
+          "q": "Rəvvadilər dövlətinin paytaxtı Təbriz Səlcuqlar tərəfindən tutuldu:",
+          "answers": [
+            "1045- ci ildə 1038- ci ildə 1043- cü ildə 1050- ci ildə 1054- cü ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 832
+        },
+        {
+          "q": "Salarilər dövləti əhatə edirdi:",
+          "answers": [
+            "Şimalda Dərbənddən cənubda Kür çayına qədər şimalda Kür çayıdan cənubda Zəncana qədər şimalda Bələncərdən cənubda Qəzvinə qədər Şimalda Şəkidən cənubda Ərdəbilə qədər Şimalda Dərbənddən cənubda Dəclə Fərat çaylarına qədər",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 833
+        },
+        {
+          "q": "Sacilər dövləti mövcud olmuşdur:",
+          "answers": [
+            "941-981- ci illərdə 981-1054- cü illərdə 861- 1038- ci illərdə 879- 941- ci illərdə 971- 1088- ci illərdə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 834
+        },
+        {
+          "q": "IX əsrdə Müstəqil Şirvanşahlar dövlətini yaratdı:",
+          "answers": [
+            "Məhəmməd ibn Xalid Məniçöhr ibn Yezid əş Şəmax ibn Şüca Əbu Tahir Heysəm ibn Xalid",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 835
+        },
+        {
+          "q": "XII əsr memarlıq abidələrinə aid deyil:",
+          "answers": [
+            "Xanəgah kəndində sərdabə Üç günbəz Mömünə xatun türbəsi Yusif İbn Küseyr türbəsi Təbrizdə Şənbi Qazan abidəsi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 836
+        },
+        {
+          "q": "Səlcuqlar sultan Toğrulun başçılığı altında nə zaman Azərbaycana daxil oldular:",
+          "answers": [
+            "XI əsrin 80 - ci illərində",
+            "XI əsrin 50 – ci illərində",
+            "XI əsrin sonlarında",
+            "XII əsrin ortalarında",
+            "X əsrin 60- cı illərində"
+          ],
+          "correct": "XI əsrin 80 - ci illərində",
+          "id": 837
+        },
+        {
+          "q": "Atropatena Sasanilər tərəfindən işğal edildi:",
+          "answers": [
+            "229- cı ildə 260- cı ildə 262- ci ildə 227- ci ildə 252-ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 838
+        },
+        {
+          "q": "Azərbaycanda ərəb əsarətinə qarşı ilk üsyanlar başlanmışdı:",
+          "answers": [
+            "750-775- ci illərdə 881-885- ci illərdə 748-752- ci illərdə 892-895- ci illərdə 760-766- cı illərdə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 839
+        },
+        {
+          "q": "Alban hökmdarı Cavanşir ərəblərə qarşı ittifaq qurmuşdu:",
+          "answers": [
+            "Sünik hökmdarı Sunbat ilə Xəzər xaqanı Şat ilə Sasani hökmdarı III Yezdəgirdlə Bizanz imperatoru II Konstantinlə Gürcü hökmdarı III Georgi ilə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 840
+        },
+        {
+          "q": "Ərəblərin Azərbaycana hücumu başlandı:",
+          "answers": [
+            "661- ci ildə 630- cu ildə 639- cu ildə 643- cü ildə 645- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 841
+        },
+        {
+          "q": "Albaniyada II Vaçenin dövründə hökmdar hakimiyyəti ləğv edildi və mərzbanlıq sistemi yaradıldı:",
+          "answers": [
+            "450- ci ildə 463- cü ildə 262- ci ildə 488- ci ildə 629 - cu ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "450- ci ildə 463- cü ildə 262- ci ildə 488- ci ildə 629 - cu ildə",
+          "id": 842
+        },
+        {
+          "q": "Albaniya Sasanilər tərəfindən işğal edilmişdi:",
+          "answers": [
+            "510 -cu ildə 463- cü ildə 227- ci ildə 262 - ci ildə 493- cü ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 843
+        },
+        {
+          "q": "Lulubilərin xırda hakimlərini mərkəzi dövlətdə birləşdirən Lullubi hökmdarı :",
+          "answers": [
+            "İşpakay Sukusşiranna",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "İşpakay Sukusşiranna",
+          "id": 844
+        },
+        {
+          "q": "E.ə. 220 - ci ildə Adərbayqanın siyasi vəziyyəti hansı bənddə düzgün əks edilmişdi:",
+          "answers": [
+            "Roma Adərbayqanla dostluq münasibətləri saxlayırdı Adərbayqan Roma və Sələvkilər arasında bölüşdürülmüşdü Adərbayqan müstəqil fəaliyyət göstərirdi Sələvkilərlə müharibədən qalib çıxmışdı Adərbayqan Sələvkilərdən asılı hala düşdü",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 845
+        },
+        {
+          "q": "Orta tunc dövründə baş vermişdir:",
+          "answers": [
+            "Böyük qəbilə birlikləri yaranmışdır",
+            "Tacirlər müstəqil fəaliyyətə başlamışdı",
+            "Əkinçilik və maldarlıq yaranmışdı",
+            "Ulu icma qəbilə icması ilə əvəz olunmuşdu",
+            "İlkin şəhər mərkəzləri yaranmışdı"
+          ],
+          "correct": "Ulu icma qəbilə icması ilə əvəz olunmuşdu",
+          "id": 846
+        },
+        {
+          "q": "Əkinçilik və maldarlıqla yanaşı, eneolit əhalisi:",
+          "answers": [
+            "Ön Asiya ilə əlaqə yaradılmış,maldarlıq əsas peşəyə çevrilmişdir. ərzağa olan tələbatın bir qismini ovçuluq və balıqçılıq vasitəsilə təmin edirdilər. əmək alətləri təkmilləşmiş,xışdan istifadə etmişlər. toxa əkinçiliyini inkişaf etdirmiş, tuncdan bəzək əşyaları düzəltmişlər maldar və əkinçi tayfalarına bölünmüşdülər.",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Ön Asiya ilə əlaqə yaradılmış,maldarlıq əsas peşəyə çevrilmişdir. ərzağa olan tələbatın bir qismini ovçuluq və balıqçılıq vasitəsilə təmin edirdilər. əmək alətləri təkmilləşmiş,xışdan istifadə etmişlər. toxa əkinçiliyini inkişaf etdirmiş, tuncdan bəzək əşyaları düzəltmişlər maldar və əkinçi tayfalarına bölünmüşdülər.",
+          "id": 847
+        },
+        {
+          "q": "Qədim daş dövrü ilə orta daş dövrünün oxşar cəhətləri:",
+          "answers": [
+            "hər ikisində tayfa birliyinin mövcud olması mənimsəmə təsərrüfatından istehsal təsərrüfatına keçidin başlanması əkinçilikdə toxadan istifadə edilməsi,nəsli qəbilə quruluşunun mövcudluğu ox və kamanın kəşfi,əmək alətlərinin daşdan hazırlanması hər ikisində əmək alətlərinin daşdan hazırlanması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 848
+        },
+        {
+          "q": "Səfəvilər dövləti ilə Osmanlı dövləti arasında imzalanmış Amasiya müqaviləsindən necə il əvvəl Atabəylər dövləti süquta uğramışdı:",
+          "answers": [
+            "365 il 375 il 330 il 340 il 450 il",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 849
+        },
+        {
+          "q": "Şeyx Heydər Ağqoyunlu Yaqub padşahla razılığa gəldikdən sonra Dağıstana və Şirvana yürüş etdi:",
+          "answers": [
+            "1490-cı ildə 1460-cı ildə 1477-ci ildə 1483-cü ildə 1494-cü ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 850
+        },
+        {
+          "q": "Qızıl Orda xanı Toxtamışın Azərbaycan şəhərlərində, həmçinin Naxçıvanda qala bilməməsinin səbəbi nə idi:",
+          "answers": [
+            "Hun tayfalarının Qızıl Orda malikanələrinə hücum etməsi",
+            "Təbriz və Naxcıvan şəhərlərinin əhalisindən xərac alması",
+            "Toxtamışın qoşunlarının aclıqdan və xəstəlikdən əziyyət çəkməsi",
+            "Rus knyazlarının Toxtamış üzərinə yürüşü",
+            "Yerli əhalinin inadlı mübarizəsi və Teymur qoşunlarının Qızıl Orda malikanələrinə hücumu."
+          ],
+          "correct": "Rus knyazlarının Toxtamış üzərinə yürüşü",
+          "id": 851
+        },
+        {
+          "q": "Hülakü hökmdarı Qazan xanın islam dinini qəbul etməkdə məqsədi:",
+          "answers": [
+            "İqtisadi tənəzüllün qarşısını almaq",
+            "Yerli oturaq feodalları və müsəlman din xadimlərini öz tərəfinə çəkmək",
+            "Keçirəcəyi islahatların tərəfdarlarının sayını artırmaq",
+            "Möhkəm birlik yaradıb Qızıl Orda dövlətinə qarşı müarizə aparmaq",
+            "Köçəri feodalların müqavimətini qırıb yerli feodalları idarəçiliyə cəlb etmək."
+          ],
+          "correct": "İqtisadi tənəzüllün qarşısını almaq",
+          "id": 852
+        },
+        {
+          "q": "Qıpçaqlar Dərbənd, Qəbələ və Gəncəni işğal etdilər:",
+          "answers": [
+            "1231-ci ildə 1221-ci ildə 1224-cü ildə 1225-ci ildə 1223-cü ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 853
+        },
+        {
+          "q": "Səlcuq axınlarının Cənubi Qafqaz üçün ən başlıca nəticəsi nədən ibarət oldu:",
+          "answers": [
+            "Ölkədə pərakəndəlik və ara müaribələri qızışdı",
+            "Vergilərin artırılması nəticəsində əhalinin narazılığı gücləndi",
+            "Azərbaycan xalqının Monqolara qarşı mübarizə aparması asanlaşdı",
+            "Azərbaycanda İslam dininin tam yayılması prosesi başa çatdı",
+            "Oğuz-türk tayfaları burada başlıca etnik və siyasi amilə çevrildi."
+          ],
+          "correct": "Azərbaycanda İslam dininin tam yayılması prosesi başa çatdı",
+          "id": 854
+        },
+        {
+          "q": "Araz çayı üzərində körpü saldırmış Şəddadi hökmdarı:",
+          "answers": [
+            "Şavur Əbülhəsən Ləşgəri Fəzl ibn Məhəmməd Məhəmməd ibn Şəddad III Fəzlun",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 855
+        },
+        {
+          "q": "Xürrəmilərin Xilafət orduları üzərindəki qələbələrinin səbəblərinə aiddir:",
+          "answers": [
+            "Xürrəmilərin Bizans imperiyasından böyük miqdarda qoşun alması",
+            "Ərəblərin döyüş meydanında düzgün taktika seçə bilməmələri",
+            "Ərəb ordusunda çoxsaylı türk süvarilərinin olması",
+            "Xilafət sarayında hakimyyət üstündə çəkişmələrin güclənməsi, ərəblərə qarşı Suriya və Misirdəki üsyanların Xürrəmilərin azadlıq müharibəsi ilə bir vaxta düşməsi",
+            "Xəzərlərin Xürrəmilərə yardım göstərməsi."
+          ],
+          "correct": "Xürrəmilərin Bizans imperiyasından böyük miqdarda qoşun alması",
+          "id": 856
+        },
+        {
+          "q": "Albaniyada Mehranilər sülaləsinin hökmranlığı başlayır:",
+          "answers": [
+            "VII əsrin sonu VIII əsrin əvvələrindən",
+            "VI əsrin sonlarından",
+            "VII əsrin ortalarından",
+            "VII əsrin əvvəllərindən",
+            "VI əsrin sonu-VII əsrin əvvələrindən."
+          ],
+          "correct": "VII əsrin ortalarından",
+          "id": 857
+        },
+        {
+          "q": "Məzdəkilər təliminin əsas müddəası:",
+          "answers": [
+            "Sasani zülmünün aradan qaldırılması, maddi nemətlərin insanlar arasında bərabər bölünməsi",
+            "Sasanilərin vergi siyatəsinə qarşı mübarizə aparmaqla ədalətli cəmiyyəti qurmaq",
+            "Ədalətli cəmiyyət qurmaq, kəndlilərdən toplanan vergilərin miqdarını azalatmaq",
+            "Son anda xeyirin şər üzərində qələbə qazanması, ədalətin bərqərar olması",
+            "Ədalətli cəmiyyət qurmaq, insanlar arasında əmlak bərabərliyi yaratmaq."
+          ],
+          "correct": "Son anda xeyirin şər üzərində qələbə qazanması, ədalətin bərqərar olması",
+          "id": 858
+        },
+        {
+          "q": "Manna dövləti Assuriya meyilli xarici siyasət yeritməsi nəticəsində nail olmuşdu:",
+          "answers": [
+            "•",
+            "Assur ağalığı ölkədə möhkəmlənmiş",
+            "Assuriyaya vergi ödənilməsi dayandırılmışdı.",
+            "",
+            ""
+          ],
+          "correct": "•",
+          "id": 859
+        },
+        {
+          "q": "E.ə 66-cı illdə Roma senatı Lisini Lukulun yerinə Şərqə göndərmişdi:",
+          "answers": [
+            "Yuliy",
+            "Sezar",
+            "Kanidi",
+            "Antoni",
+            "Qney"
+          ],
+          "correct": "Kanidi",
+          "id": 860
+        },
+        {
+          "q": "Manna hökmdarı Ahşerinin xarici siyasətində baş verən dəyişiklik nədən ibarət idi:",
+          "answers": [
+            "Assuriya ilə Urartuya qarşı ittifaq bağladı Midiya ilə birləşib Babislitanı məğlub etdi. Midiya hökmdarı Kiaksarla saziş bağladı. İskitlərlə Assuriyaya qarşı ittifaqa girdi. Assuriya ilə mübarizə aparmaq üçün Babilistanla əlaqə yaratdı.",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 861
+        },
+        {
+          "q": "Mezolit dövründə insanlar:",
+          "answers": [
+            "Ox və kaman kəşf olunmuş, əkinçillik əsas peşəyə çevrilmişdir.",
+            "Oturaq həyata keçmişlər, ox və kamandan istifadə olunmuşdur.",
+            "Daşı deşməyi bacarmış, maldarlıq əsas peşəyə çevrilmişdir.",
+            "Təbiətin hazır məhsullarını mənimsəməkdən onların istehsalına keçidin əsasını qoymuşlar",
+            "Heyvanları uzaq məsafədən ovlaya bilmişlər, istehsal təsərrüfatı formalaşmışdı"
+          ],
+          "correct": "Daşı deşməyi bacarmış, maldarlıq əsas peşəyə çevrilmişdir.",
+          "id": 862
+        },
+        {
+          "q": "1488-ci ildə Tabasaranda, Şahdağın ətəyində baş vermiş döyüşün nəticəsi:",
+          "answers": [
+            "Qızılbaşlar Qarabağ və Dağıstan hakimlərinin köməyilə Şirvanşahları məğlub etdilər Şirvanşahlara məğlub olan Şeyx Heydər Ərdəbilə geri çəkildi tərəflərdən heç biri uğur qazana bilmədi Qızılbaşlarla Ağqoyunluların birləşmiş dəstələri Şirvanşahlara qalib gəldilər Şirvanşahlarla Ağqoyunluların birləşmiş dəstələri qızılbaşları məğlub etdilər",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 863
+        },
+        {
+          "q": "XVI əsrdə yaşamış və \"Əhsən ət- Təvarix\" əsərinin müəllifi olmuş Azərbaycan tarixçisi:",
+          "answers": [
+            "Qiyasəddin əl Huseyni Şərəf xan Bitlisi Oruc bəy Bayat İskəndər Münşi Həsən bəy Rumlu",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 864
+        },
+        {
+          "q": "XV- XVI əsrlərə aid memarlıq abidələrini göstərin:",
+          "answers": [
+            "Üç günbəz, Göy günbəz , Əlincə çayı üzərində körpü ,Əlincə qalası Əlincə çayı üzərində tikilmiş körpü, Mömünə xatun türbəsi, Əlincə qalası, Ağbil məqbərəsi Oğlanqala , Xudafərin körpüsü , Qəlaybuğurd qalası , Mömünəxatun türbəsi , Şeyx Cüneyd məqbərəsi Qeysəriyyə bazarı, Nəsriyyə və Məqsudiyyə məqrəbəsi , Şeyx Cüneyd məqbərəsi, Bakının şərq darvazaları",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 865
+        },
+        {
+          "q": "Şirvanda Səfəvilər əleyhinə üsyanlar baş vermişdi:",
+          "answers": [
+            "1535- 1537- ci illərdə 1568- 1570- ci illərdə 1547- 1549-cu illərdə 1555- 1597- ci illərdə 1542- 1544- cü illərdə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 866
+        },
+        {
+          "q": "Azərbaycan sultan III Muradın ordusu tərəfindən zəbt edilmişdir:",
+          "answers": [
+            "1572- 1579-cu illərdə 1586- 1589- cu illərdə 1568-1570- ci illərdə 1555- 1570- ci illərdə 1580- 1585- ci illərdə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "1572- 1579-cu illərdə 1586- 1589- cu illərdə 1568-1570- ci illərdə 1555- 1570- ci illərdə 1580- 1585- ci illərdə",
+          "id": 867
+        },
+        {
+          "q": "Səfəvi dövlətinin idarəetmə sistemində şiələrin ruhani başçısı hesab olunurdu:",
+          "answers": [
+            "əmir əl-üməra vəkil şah vəzir sədr",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 868
+        },
+        {
+          "q": "Səfəvilərin siyasi fəaliyyəti hansı Ərdəbil hakiminin dövründən başlanmışdı:",
+          "answers": [
+            "Şeyx Cüneyd Şeyx Xacə Əli Şeyx Musa Şeyx İbrahim Şeyx Səfiyyədin",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Şeyx Cüneyd Şeyx Xacə Əli Şeyx Musa Şeyx İbrahim Şeyx Səfiyyədin",
+          "id": 869
+        },
+        {
+          "q": "Şirvanın ilk bəylərbəyi təyin olunan Əlqas Mirzənin osmanlılarla yaxınlaşmasına səbəb olmuşdu:",
+          "answers": [
+            "Krım xanı tərəfindən təqibə məruz qalması",
+            "Gürcüstana qarşı həyata keçirdiyi uğursuz yürüşlər",
+            "Şirvan feodalları ilə sazişə gələ bilməməsi",
+            "Səfəvilərə qarşı qaldırdığı qiyamın uğursuz olması",
+            "Səfəvi hökmdarı tərəfindən sıxışdırılması"
+          ],
+          "correct": "Şirvan feodalları ilə sazişə gələ bilməməsi",
+          "id": 870
+        },
+        {
+          "q": "Salari hökmdarı Mərzubanın oğlu İbrahimin dövrünə aiddir:",
+          "answers": [
+            "Dövlətin ərazisi",
+            "Dərbənddən",
+            "Zəncana qədər olan ərazini əhatə edirdi.",
+            "Dəbil əmirliyi",
+            "Şəddadilər tərəfindən zəbt edildi. “Qanunnamə” yazdırdı"
+          ],
+          "correct": "Zəncana qədər olan ərazini əhatə edirdi.",
+          "id": 871
+        },
+        {
+          "q": "Azərbaycana gəldiyi zaman Rəvvadilərin daxili müstəqilliyini tamam ləğv edərək 1065-ci ildə Təbrizə səlcuq əmiri təyin etdi:",
+          "answers": [
+            "Məlikşah Sultan II Toğrul Alp Arslan Sultan Səncər III Toğrul",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 872
+        },
+        {
+          "q": "Şəddadilər dövlətinin başçısı hansı titulu daşıyırdı :",
+          "answers": [
+            "padşah şah sultan məlik əmir",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 873
+        },
+        {
+          "q": "Şəddadilər dövlətinin qoşunu təşkil olunmuşdu :",
+          "answers": [
+            "Feodallardan ibarət suvarilər",
+            "Qeyri - türklərdən toplanmış xüsusi qvardiya",
+            "Ayrı - ayrı köçəri tayfalardan toplanmış suvarilər və piyadalar",
+            "Artileriya və piyada qoşunu",
+            "Daimi nizami qvardiya və könüllülər"
+          ],
+          "correct": "Artileriya və piyada qoşunu",
+          "id": 874
+        },
+        {
+          "q": "Şəmsəddin Eldənizə 1136 - cı ildə iqta şəklində bağışlanmışdı :",
+          "answers": [
+            "Şirvan",
+            "Arran",
+            "Kürdən cənubdakı",
+            "Azərbaycan torpaqları",
+            "Təbriz,"
+          ],
+          "correct": "Şirvan",
+          "id": 875
+        },
+        {
+          "q": "XII əsr Azərbaycan elminin nümayəndələri:",
+          "answers": [
+            "Zeynəlabdin Şirvani, Nizam Təbrizi, Hacı Əlişah Təbrizi Zülfüqar Şirvani, Məhəmməd Naxçıvani, Mahmud İbn Maqsud Mahmud Şəbüstəri, Mahmud İbn İlyas, Əbdülqadir Marağayi Fazil Fəridəddin Şirvani, Bəhmənyar ibn Mərzban, Əbu Zəkəriyyə, Əbu Mənsur Übeyd Təbrizi, Əbdülmömin Təbrizi, Zülfüqar Şirvani",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 876
+        },
+        {
+          "q": "Saları hökmdarı Mərzubanın oğlu İbrahimin (961-981) hakimiyyəti illərində dövlətin itirdiyi ərazilər:",
+          "answers": [
+            "Təbriz, Şabran, Bakı Naxçıvan, Dəbil, Ərdəbil Səlmas, Mosul, Ərdəbil Şirvan, Təbriz, Dəbil Şirvan, Dərbənd, Gəncə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 877
+        },
+        {
+          "q": "Şəddadilər dövləti yaranmışdır:",
+          "answers": [
+            "948- ci ildə",
+            "Əhərdə 1067- ci ildə",
+            "Bakıda 971- ci ildə",
+            "Gəncədə 1050- ci ildə",
+            "Gəncədə"
+          ],
+          "correct": "Əhərdə 1067- ci ildə",
+          "id": 878
+        },
+        {
+          "q": "Aratta dövlət qurumu meydana çıxıb?",
+          "answers": [
+            "e.ə.II minillik və e.ə.I minilliyin əvvəlində e.ə.VI-V minilliklərdə e.ə.VI minillikdə e.ə.III minilliyin birinci yarısında e.ə.IV minilliyin ikinci yarısında",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 879
+        },
+        {
+          "q": "E.ə. III minilliyin birinci yarısında:",
+          "answers": [
+            "Arattada dövlətə məxsus idarə orqanları və vəzifəli şəxslər kiçik feodallar meydana gəlmişdi",
+            "Aratta haqqında “En-Merkar” dastanı və III Salmanasarın daş kitabəsində məlumat verilir",
+            "Arattada dövlət yaranmış, nizami ordu yaradılıb, silah istehsal olunmaqla Mesapatomiyaya səfərlər təşkil edilib",
+            "Aratta Cənubi Azərbaycanda yaranmış,onun ərazisi Urmiya gölünün cənub və cənub-şərq hissəsini əhatə edirdi",
+            "Arattada dövlətə məxsus idarə orqanları və vəzifəli şəxslər, icmaçi kəndlilər meydana gəlmişdi."
+          ],
+          "correct": "Arattada dövlət yaranmış, nizami ordu yaradılıb, silah istehsal olunmaqla Mesapatomiyaya səfərlər təşkil edilib",
+          "id": 880
+        },
+        {
+          "q": "Roma hökmdarı Qney Pompeyin yürüşü zamanı Albaniyada hökmdarlıq edirdi:",
+          "answers": [
+            "Urnayır",
+            "II",
+            "Vaçe",
+            "Oroys",
+            "Arran"
+          ],
+          "correct": "II",
+          "id": 881
+        },
+        {
+          "q": "Tarixi qaynaqlarda albanlarla dostluq münasibətləri saxlayan Roma imperatoru hesab olunur:",
+          "answers": [
+            "Mavriki",
+            "Yuli",
+            "Sezar",
+            "Adrian",
+            "Oktavian"
+          ],
+          "correct": "Yuli",
+          "id": 882
+        },
+        {
+          "q": "II Sarqonun şərəfinə abidə qoydurmuş Manna hökmdarı:",
+          "answers": [
+            "Ahşeri",
+            "Ualli",
+            "İranzu",
+            "Ullusunu",
+            ""
+          ],
+          "correct": "İranzu",
+          "id": 883
+        },
+        {
+          "q": "E.ə.VII əsrin ortalarında skit hökmdarı:",
+          "answers": [
+            "II",
+            "Sarqon",
+            "Asarhaddn",
+            "Şamaş",
+            "Tuqdamme"
+          ],
+          "correct": "Asarhaddn",
+          "id": 884
+        },
+        {
+          "q": "Kuti hökmdarları İkiçayarasında hakimiyyəti ələ keçirdilər:",
+          "answers": [
+            "e.ə.2315-ci ildə e.ə. 2104-cü ildə e.ə.2115-ci ildə e.ə.2175-ci ildə e.ə. 2555- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 885
+        },
+        {
+          "q": "Kutilərin İkiçayarasında hakimiyyəti nə vaxta qədər davam etmişdir:",
+          "answers": [
+            "e.ə. 2135- ci ilədək e.ə. 2114-cü ilədək e.ə. 2150- ci ilədək e.ə. 2109 -cu ilədək e.ə. 2104- cü ilədək",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 886
+        },
+        {
+          "q": "E.ə. II minilliyin əvvəllərində turukkilərin İkiçayarasının şimalında apardıqları mübarizə hansı dövlətin maraqlarına toxunurdu:",
+          "answers": [
+            "Midiya",
+            "Akkad",
+            "Şumer",
+            "Assuriya",
+            "Manna"
+          ],
+          "correct": "Şumer",
+          "id": 887
+        },
+        {
+          "q": "E.ə. III minilliyin I yarısında Aratta dövləti hansı Şumer şəhər dövləti ilə münasibətlər saxlamışdi:",
+          "answers": [
+            "Nippur",
+            "Ur",
+            "Uruk",
+            "Sippar",
+            "Umma"
+          ],
+          "correct": "Ur",
+          "id": 888
+        },
+        {
+          "q": "Aşağıda göstərilənlər Ziviyə abidəsini daha düzgün əks etdirir:",
+          "answers": [
+            "Silahların hazırlanmasında tökmə sənəti təsvir edilmişdir",
+            "Qızıl, gümüş və fil sümüyündən hazırlanmış 341 əşya tapılmışdır",
+            "Böyük qızıl qədəh üzərində təsviri nağıl əks olunmuşdur",
+            "Hökmdarların basdırılma mərasimi əks olunmuşdur \"Skit üslublu\" üzük əşyaları tapılmışdır",
+            ""
+          ],
+          "correct": "Silahların hazırlanmasında tökmə sənəti təsvir edilmişdir",
+          "id": 889
+        },
+        {
+          "q": "Xanlıqlar dövründə divan, şəriət və əsnaf məhkəmələri kimlərin mənafeyini müdafiə edirdi?",
+          "answers": [
+            "rəiyyət və rəncbərlərin din xadimləri və sənətkarların xan və feodalların azad və icmaçı kəndlilərin maaf və elatların",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 890
+        },
+        {
+          "q": "Quba xanlığı İrana və Osmanlı Türkiyəsinə qarşı birgə mübarizə aparmaq üçün hansı ölkə ilə ittifaqa girdi?",
+          "answers": [
+            "Qarabağ xanlığı ilə",
+            "Naxçıvan xanlığı ilə",
+            "Xoy xanlığı ilə",
+            "Gürcüstan çarlığı ilə",
+            "Bakı xanlığı ilə"
+          ],
+          "correct": "Xoy xanlığı ilə",
+          "id": 891
+        },
+        {
+          "q": "Quba xanı Fətəli xanın Qarabağa hücumu neçənci ildə həyata keçirilmişdi?",
+          "answers": [
+            "1780 – 1781",
+            "1774 - 1775",
+            "1784 – 1785",
+            "1772 - 1774",
+            "1783 - 1784"
+          ],
+          "correct": "1780 – 1781",
+          "id": 892
+        },
+        {
+          "q": "Quba xanı Fətəli xanın cənub xanlıqlarında möhkəmlənə bilməməsinin əsas səbəbləri:",
+          "answers": [
+            "Dağıstan feodallarının birləşmiş quvvələrinin Dərbəndi ələ keçirməsi Qarabağ xanlığının Quba üzərinə yürüşü Cənub xanlıqlarının güclü müdafiə olunması Dağıstan feodallarının arxadan onu hədələməsi və Rusiyanın narazılığı Şimal – şərqi Azərbaycanda vəziyyətin qeyri – sabit olması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 893
+        },
+        {
+          "q": "Quba xanı Fətəli xan 1769 – cu ildə lazım olduqda ona qoşun verməyi qəbul edən müqaviləni hansı xanlıqla baglamışdı?",
+          "answers": [
+            "Ərdəbil",
+            "Qarabag",
+            "Naxçıvan",
+            "Şəki",
+            "Lənkəran"
+          ],
+          "correct": "Naxçıvan",
+          "id": 894
+        },
+        {
+          "q": "Azərbaycanda vahid dövlət yaratmaq istəyirdi:",
+          "answers": [
+            "Bakı və Quba xanlıqları Şəki və Lənkəran xanlıqları Şəki və Gəncə xanlıqları Şəki və Quba xanlıqları Lənkəran və Bakı xanlıqları",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 895
+        },
+        {
+          "q": "Cavad xanlığı neçənci ildə Quba xanlığı tərəfindən təşkil olunan Şimal – şərqi Azərbaycan ərazisinə daxil edildi?",
+          "answers": [
+            "1767- ci ildə 1785- ci ildə 1769- cu ildə 1768 - ci ildə 1756- cı ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 896
+        },
+        {
+          "q": "İbrahimxəlil xanın Xoy səfəri neçənci ildə həyata keçirilmişdi?",
+          "answers": [
+            "1785- ci ildə 1790- cı ildə 1788 - ci ildə 1792- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "1785- ci ildə 1790- cı ildə 1788 - ci ildə 1792- ci ildə",
+          "id": 897
+        },
+        {
+          "q": "1765 – ci ildə Şamaxı və Quba xanlığı arasında başlayan mubarizə neçənci ildə başa çatdı?",
+          "answers": [
+            "1789- cu ildə 1765- ci ildə 1770- ci ildə 1768- ci ildə 1775- ci ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 898
+        },
+        {
+          "q": "Urmiya xanı Fətəli xan Əfşarın 1760 – cı ildə Qarabağa hucumunun nəticəsi?",
+          "answers": [
+            "Pənahəli xan Urmiya xanlığına qarşı Şəki xanı ilə müqavilə bağladı Fətəli xan məğlub olmuş ,qoşununu geri çəkmişdi Fətəli xan Qarabağı işgal edərək onun bütün ərazisinə sahib olmuşdu Pənahəli xan qalib gələrək Urmiya xanlığı ilə sulh imzalamışdı Pənahəli xan oğlu İbrahimxəlil xanı girov göndərərək Şuşanı mühasirədən azad etmişdi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 899
+        },
+        {
+          "q": "Qubalı Fətəli xanla Şəki xanı Hüseyn xan arasında müqavilə imzalanmasından neçə il sonra Ağa Məhəmməd Şah Qacar Şuşanı işğal etdi?",
+          "answers": [
+            "36",
+            "21",
+            "34",
+            "28",
+            "17"
+          ],
+          "correct": "34",
+          "id": 900
+        },
+        {
+          "q": "Xanlıqlar dövründə hansı məhkəmə idarələri mövcud olmuşdur?",
+          "answers": [
+            "silki məhkəmələr qazı və əsnaf məhkəmələri şəhər və divan məhkəmələri əyalət və kənd məhkəmələri divan, şəriət və əsnaf məhkəmələri",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 901
+        },
+        {
+          "q": "Qubalı Fətəli xanın 1784 – cü ildə Qarabağ və Cənubi Azərbaycan xanlıqlarına yürüşü zamanı ona dəstək vermişdi:",
+          "answers": [
+            "Dərbənd xanı",
+            "Cavad xanı",
+            "Şamaxı xanı",
+            "Bakı xanı",
+            "Şəki xanı"
+          ],
+          "correct": "Dərbənd xanı",
+          "id": 902
+        },
+        {
+          "q": "Hansı xanlığın Quba xanlığına birləşdirilməsi ilə Şimal - Şərqi Azərbaycan torpaqlarının birləşdirilməsi başa çatdı:",
+          "answers": [
+            "Dərbənd xanlığı",
+            "Bakı xanlığı",
+            "Talış xanlığı",
+            "Cavad xanlığı",
+            "Şəki xanlığı"
+          ],
+          "correct": "Cavad xanlığı",
+          "id": 903
+        },
+        {
+          "q": "Cənubi Qafqazın “Qafqaz lionu ” hansı şəhər hesab edilirdi?",
+          "answers": [
+            "Qarabağ",
+            "Şuşa",
+            "Quba",
+            "Nuxa",
+            "Ordubad"
+          ],
+          "correct": "Quba",
+          "id": 904
+        },
+        {
+          "q": "Ağqoyunlu hökmdarı Uzun Həsənin osmanlılara qarşı mübarizədə sıx əlaqə saxladığı dövlətlər idi:",
+          "answers": [
+            "Qaraqoyunlu dövləti, Kipr krallığı, Teymurilər Trabzon dövləti, Qaraman bəyliyi, Kipr krallığı, Rodos dövləti Almaniya imperatorluğu,Şeybanilər, İspaniya Məmlük dövləti,Şeybanilər, Genuya Trabzon dövləti, Teymurilər, Qaraman bəyliyi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "Qaraqoyunlu dövləti, Kipr krallığı, Teymurilər Trabzon dövləti, Qaraman bəyliyi, Kipr krallığı, Rodos dövləti Almaniya imperatorluğu,Şeybanilər, İspaniya Məmlük dövləti,Şeybanilər, Genuya Trabzon dövləti, Teymurilər, Qaraman bəyliyi",
+          "id": 905
+        },
+        {
+          "q": "Ağqoyunlu - Osmanlı müharibələri zamanı osmanlıların məğlub olduğu döyüş:",
+          "answers": [
+            "Qoyluhisar",
+            "Otluqbeli",
+            "Qoçhisar",
+            "Beyşehir",
+            "Malatya"
+          ],
+          "correct": "Beyşehir",
+          "id": 906
+        },
+        {
+          "q": "Şirazın valisi olan Uğurlu Məhəmmədin başçılıq etdiyi qiyam nə zaman baş vermişdir:",
+          "answers": [
+            "1472- ci ildə 1475- ci ildə 1477- ci ildə 1474- cü ildə 1479- cu ildə",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 907
+        },
+        {
+          "q": "1412- ci ildə Qaraqoyunlulara tabe olan Şirvanşahlar hansı hökmdarın dövründə asılılıqdan imtina etdilər:",
+          "answers": [
+            "Keyqubadın",
+            "Hüşəngin",
+            "Keykavusun I",
+            "Xəlilullahın I",
+            "İbrahimin"
+          ],
+          "correct": "Keykavusun I",
+          "id": 908
+        },
+        {
+          "q": "Qaraqoyunlu dövlətinin teymurilərin asılılığından azad olmasından neçə il əvvəl Şəddadilər dövləti süqut etdi?",
+          "answers": [
+            "459 il 390 il 410 il 559 il 359 il",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 909
+        },
+        {
+          "q": "1402 – ci ildə Teymurun Osmanlı sultanı I Bəyazidlə vuruşmasında Azərbaycan hökmdarları ona kömək etmişdi:",
+          "answers": [
+            "Uzun Həsən və Şeyx Səfiyyədin Qara Məhəmməd və Sultan Əhməd Sultan Hüseyn və Qara İskəndər I İbrahim və Seyid Əhməd Şeyx Üveys və Qara Yusif",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 910
+        },
+        {
+          "q": "Şirvanşah I İbrahim Əmir Teymurla olan müttəfiqlik münasibətindən istifadə edərək :",
+          "answers": [
+            "Gürcüstanın şərq ərazilərinə sahib oldu Əlincə qalasının tutulmasında teymurilərə kömək etdi Osmanlı dövləti ilə münasibətləri qaydaya saldı Qarabağ , Şəki, Dərbənd və Qəbələyə öz təsirini yaydı Təbrizi ələ keçirərək öz hakimiyyətini bütün Azərbaycanda genişləndirdi",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
+          "id": 911
+        },
+        {
+          "q": "1406- cı ilin mayında Təbrizə daxil olan Şirvanşah I İbrahimin tezliklə şəhəri tərk etməsinin səbəbi :",
+          "answers": [
+            "Şeyx Əli Qəssab və Qazi İmadəddinin başçılığı ilə Şirvanşahlara qarşı üsyanın başlanması Ərdəbilli Bistam Cəyirin Təbrizə hücum etməsi Teymurun nəvəsi Ömərin ordusunun Təbrizi mühasirəyə alması Teymuri Əbubəkrin ordusunun Təbrizə yaxınlaşması Cəlari Sultan Əhmədin və Qaraqoyunlu tayfa birləşməsinin hərbi qüvvələrinin şəhərə yaxınlaşması",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "correct": "",
