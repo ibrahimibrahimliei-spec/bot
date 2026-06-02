@@ -1,4 +1,2 @@
 [phases.setup]
-  aptPkgs = ['poppler-utils']
-[phases.setup]
-nixPkgs = ["python311", "poppler_utils"]
+aptPkgs = ["poppler-utils"]
