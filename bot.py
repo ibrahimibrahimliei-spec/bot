@@ -152,6 +152,7 @@ group_sessions = {}    # chat_id (group) -> {...}
 ad_signals = {}        # user_id -> {ctx, ts}  - WebApp sendData siqnalı buraya düşür
 last_ad_shown = {}     # chat_id -> timestamp
 range_pending = {}     # chat_id -> subject_id (istifadəçidən diapazon gözləyirik)
+pdf_import_pending = {}  # user_id -> parse olunmuş suallar (fənn seçimini gözləyirik)
 
 
 # ─── DATABASE ─────────────────────────────────────────────────────────────────
@@ -2093,11 +2094,24 @@ def document_handler(update: Update, context: CallbackContext):
 
     if file_name.lower().endswith('.pdf'):
         try:
-            n = bulk_import_pdf(raw, default_subject_id="adiak")
+            questions = parse_pdf_questions(raw)
+            if not questions:
+                update.message.reply_text("❌ PDF-dən heç bir sual parse edilə bilmədi.")
+                return
+            # Parse olunmuş sualları müvəqqəti saxla, fənn seçimini gözlə
+            pdf_import_pending[user.id] = questions
+            keyboard = []
+            for s in DATA['subjects']:
+                keyboard.append([InlineKeyboardButton(
+                    f"{s.get('emoji','📘')} {s['name']}",
+                    callback_data=f"pdfimp_sub_{s['id']}"
+                )])
+            keyboard.append([InlineKeyboardButton("❌ Ləğv et", callback_data="pdfimp_cancel")])
             update.message.reply_text(
-                f"✅ PDF-dən {n} sual parse edildi.\n"
-                f"⚠️ Diqqət: avtomatik olaraq `adiak` fənninin `all_questions` siyahısına əlavə edildi.",
-                parse_mode='Markdown'
+                f"✅ PDF-dən *{len(questions)}* sual parse edildi.\n\n"
+                f"📚 Hansı fənnə əlavə edilsin?",
+                parse_mode='Markdown',
+                reply_markup=InlineKeyboardMarkup(keyboard)
             )
         except Exception as e:
             update.message.reply_text(f"❌ PDF xətası: {e}")
@@ -2177,9 +2191,9 @@ def _import_one_payload(payload):
     return n
 
 
-def bulk_import_pdf(raw_bytes, default_subject_id="adiak", default_topic_num=0):
-    """PDF binary-dən ADİAK formatında parse et (• və √ markerli cavablar).
-    pypdf istifadə edir — sistem alətinə (pdftotext) ehtiyac yoxdur."""
+def parse_pdf_questions(raw_bytes):
+    """PDF binary-dən sualları parse edir (• və √ markerli cavablar).
+    Yalnız parse edir, import etmir. Sual siyahısı qaytarır."""
     try:
         from pypdf import PdfReader
     except ImportError:
@@ -2197,8 +2211,12 @@ def bulk_import_pdf(raw_bytes, default_subject_id="adiak", default_topic_num=0):
         except Exception as e:
             log.warning(f"PDF səhifə parse xətası: {e}")
     text = "\n".join(text_parts)
+    return parse_adiak_text(text)
 
-    questions = parse_adiak_text(text)
+
+def bulk_import_pdf(raw_bytes, default_subject_id="adiak", default_topic_num=0):
+    """PDF binary-dən parse edib birbaşa import edir (köhnə uyğunluq üçün)."""
+    questions = parse_pdf_questions(raw_bytes)
     payload = {
         "subject_id": default_subject_id,
         "topic_num": default_topic_num,
@@ -2375,6 +2393,43 @@ def admin_callback_handler(update: Update, context: CallbackContext):
     if data == "admin_close":
         try: query.message.delete()
         except: pass
+        return
+
+    # PDF import: fənn seçimi
+    if data == "pdfimp_cancel":
+        pdf_import_pending.pop(user_id, None)
+        try:
+            query.edit_message_text("❌ PDF import ləğv edildi.")
+        except: pass
+        return
+
+    if data.startswith("pdfimp_sub_"):
+        sid = data[len("pdfimp_sub_"):]
+        questions = pdf_import_pending.get(user_id)
+        if not questions:
+            try:
+                query.edit_message_text("⚠️ Import məlumatı tapılmadı (vaxtı keçib). PDF-i yenidən göndərin.")
+            except: pass
+            return
+        subj = get_subject(sid)
+        if not subj:
+            try:
+                query.edit_message_text(f"❌ Fənn tapılmadı: {sid}")
+            except: pass
+            return
+        try:
+            n = _import_one_payload({
+                "subject_id": sid,
+                "topic_num": 0,
+                "questions": questions
+            })
+            pdf_import_pending.pop(user_id, None)
+            query.edit_message_text(
+                f"✅ *{subj['name']}* fənninə {n} sual əlavə edildi.",
+                parse_mode='Markdown'
+            )
+        except Exception as e:
+            query.edit_message_text(f"❌ Import xətası: {e}")
         return
 
     if data == "admin_panel":
@@ -3870,7 +3925,7 @@ def main():
     # Admin callback-ləri (pattern əsasında)
     dp.add_handler(CallbackQueryHandler(
         admin_callback_handler,
-        pattern=r"^(admin_|adminq_|addq_)"
+        pattern=r"^(admin_|adminq_|addq_|pdfimp_)"
     ))
 
     # Callback router (əsas)
