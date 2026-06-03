@@ -2192,26 +2192,128 @@ def _import_one_payload(payload):
 
 
 def parse_pdf_questions(raw_bytes):
-    """PDF binary-dən sualları parse edir (• və √ markerli cavablar).
-    Yalnız parse edir, import etmir. Sual siyahısı qaytarır."""
-    try:
-        from pypdf import PdfReader
-    except ImportError:
-        try:
-            from PyPDF2 import PdfReader  # köhnə versiya fallback
-        except ImportError:
-            raise RuntimeError("pypdf kitabxanası yoxdur. requirements.txt-ə əlavə et: pypdf")
-
+    """PDF binary-dən sualları parse edir (• = səhv, √ = düz).
+    pdfplumber əsaslı v2 parser — sətir parçalanması və dublikat seçimləri düzəldir.
+    Bot formatında qaytarır: [{"q", "answers", "correct"}, ...]"""
     import io as _io
-    reader = PdfReader(_io.BytesIO(raw_bytes))
-    text_parts = []
-    for page in reader.pages:
+
+    # ── 1. PDF mətn çıxarma ──
+    lines = []
+    try:
+        import pdfplumber
+        with pdfplumber.open(_io.BytesIO(raw_bytes)) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text() or ""
+                lines.extend(page_text.split("\n"))
+    except ImportError:
+        # pdfplumber yoxdursa pypdf fallback
+        log.warning("pdfplumber yoxdur, pypdf-ə keçilir")
         try:
-            text_parts.append(page.extract_text() or "")
-        except Exception as e:
-            log.warning(f"PDF səhifə parse xətası: {e}")
-    text = "\n".join(text_parts)
-    return parse_adiak_text(text)
+            from pypdf import PdfReader
+        except ImportError:
+            from PyPDF2 import PdfReader
+        reader = PdfReader(_io.BytesIO(raw_bytes))
+        for page in reader.pages:
+            try:
+                lines.extend((page.extract_text() or "").split("\n"))
+            except Exception as e:
+                log.warning(f"PDF səhifə parse xətası: {e}")
+
+    # ── 2. Preprocessing: çap artefaktlarını düzəlt ──
+    def _preprocess(src):
+        out = []
+        i = 0
+        while i < len(src):
+            stripped = src[i].strip()
+            # A) Solo marker: sətir yalnız √ və ya •
+            if stripped in ("√", "•"):
+                nxt = src[i + 1].strip() if i + 1 < len(src) else ""
+                out.append(f"{stripped} {nxt}")
+                i += 2
+                continue
+            # B) Solo number: sətir yalnız "N."
+            if re.match(r"^\d+\.$", stripped):
+                prev = out.pop() if out else ""
+                nxt = src[i + 1].strip() if i + 1 < len(src) else ""
+                out.append(f"{stripped} {prev} {nxt}")
+                i += 2
+                continue
+            out.append(src[i])
+            i += 1
+        return out
+
+    # ── 3. Seçim deduplication ──
+    _AZ_SUFFIXES = ("dan", "dən", "tan", "tən")
+
+    def _norm(s):
+        s = re.sub(r"[;.,]+$", "", s.strip()).strip().lower()
+        for suf in _AZ_SUFFIXES:
+            if s.endswith(suf):
+                s = s[:-len(suf)].rstrip()
+                break
+        return s
+
+    def _dedup(options):
+        result = []
+        norms_seen = set()
+        for correct, text in options:
+            n = _norm(text)
+            if n in norms_seen:
+                continue
+            if correct:
+                is_sub = any(n in _norm(r[1]) for r in result if r[0])
+                if is_sub:
+                    continue
+            norms_seen.add(n)
+            result.append((correct, text))
+        return result
+
+    # ── 4. Parse ──
+    def _finalize(text_parts, raw_opts):
+        opts = _dedup(raw_opts)
+        corrects = [t for c, t in opts if c]
+        return {
+            "q": " ".join(text_parts).strip(),
+            "answers": [t for _, t in opts],
+            "correct": corrects[0] if corrects else "",
+        }
+
+    clean = _preprocess(lines)
+    questions = []
+    cur_q = None
+    cur_text = []
+    cur_opts = []
+
+    for raw_line in clean:
+        line = raw_line.strip()
+        if not line:
+            continue
+        m = re.match(r"^(\d+)\.\s+(.*)", line)
+        if m:
+            if cur_q is not None:
+                questions.append(_finalize(cur_text, cur_opts))
+            cur_q = int(m.group(1))
+            cur_text = [m.group(2)]
+            cur_opts = []
+            continue
+        if line.startswith("√ "):
+            cur_opts.append((True, line[2:].strip()))
+        elif line.startswith("• "):
+            cur_opts.append((False, line[2:].strip()))
+        elif cur_q is not None:
+            if cur_opts:
+                last = cur_opts[-1]
+                cur_opts[-1] = (last[0], last[1] + " " + line)
+            else:
+                cur_text.append(line)
+
+    if cur_q is not None:
+        questions.append(_finalize(cur_text, cur_opts))
+
+    # Yalnız düzgün cavabı və ən azı 2 seçimi olan sualları qaytar
+    valid = [q for q in questions if q["correct"] and q["correct"] in q["answers"] and len(q["answers"]) >= 2]
+    log.info(f"PDF parse: {len(questions)} sual tapıldı, {len(valid)} keçərli")
+    return valid
 
 
 def bulk_import_pdf(raw_bytes, default_subject_id="adiak", default_topic_num=0):
