@@ -24,14 +24,14 @@ import io
 import time
 import re
 import urllib.parse
-from datetime import datetime, timedelta
+from datetime import datetime
 from telegram import (
     Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo,
     KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
 )
 from telegram.ext import (
     Updater, CommandHandler, CallbackQueryHandler,
-    CallbackContext, MessageHandler, Filters, ConversationHandler
+    CallbackContext, MessageHandler, Filters
 )
 
 # ─── CONFIG ───────────────────────────────────────────────────────────────────
@@ -57,9 +57,10 @@ BOT_USERNAME = None
 # HTML hansı kontekstdə açıldığını biləsin və bota düzgün siqnal göndərsin.
 AD_WEBAPP_REWARDED_URL     = "https://ibrahimibrahimliei-spec.github.io/bot/ad_rewarded.html"
 AD_WEBAPP_INTERSTITIAL_URL = "https://ibrahimibrahimliei-spec.github.io/bot/ad_rewarded.html"
-AD_EVERY_N_QUESTIONS = 5
-AD_MIN_GAP_SECONDS = 30  # Eyni reklamın çox sıx göstərilməməsi üçün
-AD_REQUIRED = True  # False edilərsə reklam izləmədən də başlamaq mümkün olur (debug üçün)
+# Defaultlar — runtime-da admin paneldən dəyişdirilə bilər (DATA['settings']-də saxlanır)
+AD_EVERY_N_QUESTIONS_DEFAULT = 5
+AD_MIN_GAP_SECONDS_DEFAULT = 30   # Eyni reklamın çox sıx göstərilməməsi üçün
+AD_REQUIRED_DEFAULT = True        # False edilərsə reklam izləmədən də başlamaq mümkün olur
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -130,6 +131,26 @@ rebuild_question_index()
 
 def get_subject(subject_id):
     return SUBJECTS_BY_ID.get(subject_id)
+
+
+# ─── Reklam parametrləri (runtime, DATA['settings']-də saxlanır) ──────────────
+
+_AD_DEFAULTS = {
+    "ad_every_n": AD_EVERY_N_QUESTIONS_DEFAULT,
+    "ad_min_gap": AD_MIN_GAP_SECONDS_DEFAULT,
+    "ad_required": AD_REQUIRED_DEFAULT,
+}
+
+
+def get_setting(key):
+    """DATA['settings']-dən parametr oxuyur, yoxdursa default qaytarır."""
+    return DATA.setdefault("settings", {}).get(key, _AD_DEFAULTS.get(key))
+
+
+def set_setting(key, value):
+    """Parametri DATA['settings']-ə yazır və diskə saxlayır."""
+    DATA.setdefault("settings", {})[key] = value
+    save_data()
 
 
 def subject_has_topics(subject):
@@ -599,7 +620,7 @@ def clear_saved_session(user_id):
 
 def show_rewarded_ad(chat_id, context: CallbackContext, after_ad_callback: str):
     """Start sonrası reklam — ana menyuya keçidi açır."""
-    if not AD_REQUIRED:
+    if not get_setting('ad_required'):
         # Debug rejimi: birbaşa keç
         if after_ad_callback == "ad_done_start":
             show_subject_menu(chat_id, context)
@@ -631,13 +652,13 @@ def show_rewarded_ad(chat_id, context: CallbackContext, after_ad_callback: str):
 
 def show_interstitial_ad(chat_id, context: CallbackContext):
     """Test arası reklam — növbəti suala keçidi açır."""
-    if not AD_REQUIRED:
+    if not get_setting('ad_required'):
         send_next_question(chat_id, context)
         return
 
     now = time.time()
     last = last_ad_shown.get(chat_id, 0)
-    if now - last < AD_MIN_GAP_SECONDS:
+    if now - last < get_setting('ad_min_gap'):
         send_next_question(chat_id, context)
         return
 
@@ -917,7 +938,7 @@ def ask_question_count(query, context: CallbackContext, subject_id):
     total_q = len(subject_all_questions(subject))
     if total_q == 0:
         query.edit_message_text(
-            f"⚠️ Bu fənnə hələ sual əlavə olunmayıb.",
+            "⚠️ Bu fənnə hələ sual əlavə olunmayıb.",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ Geri", callback_data=f"subj_{subject_id}")]])
         )
         return
@@ -1473,7 +1494,7 @@ def callback_handler(update: Update, context: CallbackContext):
     if data == "next":
         session = user_sessions.get(chat_id, {})
         current = session.get('current', 0)
-        if current > 0 and current % AD_EVERY_N_QUESTIONS == 0:
+        if current > 0 and current % get_setting('ad_every_n') == 0:
             try: query.message.delete()
             except: pass
             show_interstitial_ad(chat_id, context)
@@ -2056,6 +2077,93 @@ def qhardest_command(update: Update, context: CallbackContext):
     update.message.reply_text("\n".join(lines), parse_mode='Markdown')
 
 
+# ─── BACKUP ───────────────────────────────────────────────────────────────────
+#
+# Backup faylı: questions_data.json + bot_data.db birlikdə ZIP-də.
+# Manual (admin düyməsi) və ya avtomatik (gündəlik JobQueue) göndərilir.
+
+def make_backup_zip():
+    """questions_data.json və bot_data.db-ni ZIP-ə yığıb yol qaytarır."""
+    import zipfile, tempfile
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    tmp_path = os.path.join(tempfile.gettempdir(), f"backup_{ts}.zip")
+    with zipfile.ZipFile(tmp_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        if os.path.exists(DATA_FILE):
+            zf.write(DATA_FILE, arcname="questions_data.json")
+        if os.path.exists(DB_FILE):
+            zf.write(DB_FILE, arcname="bot_data.db")
+    return tmp_path, ts
+
+
+def send_backup_to_admins(bot, caption_prefix="💾 Backup"):
+    """Backup ZIP-ini bütün adminlərə göndərir."""
+    try:
+        path, ts = make_backup_zip()
+    except Exception as e:
+        log.error(f"Backup yaradıla bilmədi: {e}")
+        return False
+    ok = False
+    for admin_id in ADMIN_IDS:
+        try:
+            with open(path, "rb") as f:
+                bot.send_document(
+                    chat_id=admin_id,
+                    document=f,
+                    filename=f"backup_{ts}.zip",
+                    caption=f"{caption_prefix} — {ts}"
+                )
+            ok = True
+        except Exception as e:
+            log.error(f"Backup admin {admin_id}-ə göndərilmədi: {e}")
+    try:
+        os.remove(path)
+    except Exception:
+        pass
+    return ok
+
+
+def daily_backup_job(context: CallbackContext):
+    """JobQueue üçün gündəlik backup tapşırığı."""
+    log.info("Gündəlik avtomatik backup işə düşdü.")
+    send_backup_to_admins(context.bot, caption_prefix="💾 Avtomatik gündəlik backup")
+
+
+def _show_ad_config(query):
+    """Reklam parametrləri idarəetmə panelini göstərir."""
+    every_n = get_setting("ad_every_n")
+    min_gap = get_setting("ad_min_gap")
+    required = get_setting("ad_required")
+    text = (
+        "📢 *Reklam parametrləri*\n\n"
+        f"• Hər neçə sualdan bir reklam: *{every_n}*\n"
+        f"• Reklamlar arası minimum fasilə: *{min_gap} san*\n"
+        f"• Reklam məcburidir: *{'✅ Bəli' if required else '❌ Xeyr'}*\n\n"
+        "Aşağıdakı düymələrlə dəyişin:"
+    )
+    keyboard = [
+        [
+            InlineKeyboardButton("➖", callback_data="adcfg_every_dec"),
+            InlineKeyboardButton(f"Hər {every_n} sual", callback_data="adcfg_noop"),
+            InlineKeyboardButton("➕", callback_data="adcfg_every_inc"),
+        ],
+        [
+            InlineKeyboardButton("➖", callback_data="adcfg_gap_dec"),
+            InlineKeyboardButton(f"Fasilə {min_gap}s", callback_data="adcfg_noop"),
+            InlineKeyboardButton("➕", callback_data="adcfg_gap_inc"),
+        ],
+        [InlineKeyboardButton(
+            f"Reklam məcburi: {'✅ Açıq' if required else '❌ Bağlı'}",
+            callback_data="adcfg_toggle_required"
+        )],
+        [InlineKeyboardButton("⬅️ Admin panel", callback_data="admin_panel")],
+    ]
+    try:
+        query.edit_message_text(text, parse_mode='Markdown',
+                                reply_markup=InlineKeyboardMarkup(keyboard))
+    except Exception:
+        pass
+
+
 # ─── ADMIN: bulk import ───────────────────────────────────────────────────────
 #
 # Admin botu sənəd (JSON faylı) göndərir. Fayl belə formatda olmalıdır:
@@ -2099,6 +2207,8 @@ def document_handler(update: Update, context: CallbackContext):
                 update.message.reply_text("❌ PDF-dən heç bir sual parse edilə bilmədi.")
                 return
             # Parse olunmuş sualları müvəqqəti saxla, fənn seçimini gözlə
+            # Köhnə yarımçıq wizard varsa təmizlə (qarışmasın)
+            admin_wizard_data.pop(user.id, None)
             pdf_import_pending[user.id] = questions
             keyboard = []
             for s in DATA['subjects']:
@@ -2427,6 +2537,14 @@ EDIT_Q_SEARCH, EDIT_Q_ACTION, EDIT_Q_NEW_VALUE = range(5, 8)
 admin_wizard_data = {}  # user_id -> {step, question_text, options, correct, subject_id, ...}
 
 
+def start_wizard(user_id, state):
+    """Yeni wizard başladır, köhnə yarımçıq state-ləri avtomatik təmizləyir.
+    Bu, eyni anda iki wizard-ın qarışmasının qarşısını alır."""
+    pdf_import_pending.pop(user_id, None)
+    admin_wizard_data[user_id] = state
+    return state
+
+
 @admin_only
 def admin_command(update: Update, context: CallbackContext):
     """/admin əmri — əsas admin paneli aç."""
@@ -2464,6 +2582,8 @@ def show_admin_panel(chat_id, context, user_id=None, edit_query=None):
         [InlineKeyboardButton("📊 Tam statistika", callback_data="admin_stats"),
          InlineKeyboardButton("📢 Bildiriş göndər", callback_data="admin_broadcast")],
         [InlineKeyboardButton("📚 Fənn/Mövzu idarəçiliyi", callback_data="admin_subjects")],
+        [InlineKeyboardButton("💾 Backup al", callback_data="admin_backup")],
+        [InlineKeyboardButton("📢 Reklam parametrləri", callback_data="admin_adcfg")],
         [InlineKeyboardButton("❌ Bağla", callback_data="admin_close")]
     ]
 
@@ -2495,6 +2615,38 @@ def admin_callback_handler(update: Update, context: CallbackContext):
     if data == "admin_close":
         try: query.message.delete()
         except: pass
+        return
+
+    if data == "admin_backup":
+        query.answer("Backup hazırlanır...")
+        ok = send_backup_to_admins(context.bot, caption_prefix="💾 Manual backup")
+        if ok:
+            try:
+                query.edit_message_text("✅ Backup faylı göndərildi (yuxarıya bax).")
+            except: pass
+        else:
+            try:
+                query.edit_message_text("❌ Backup yaradıla bilmədi. Logları yoxla.")
+            except: pass
+        return
+
+    if data == "admin_adcfg":
+        _show_ad_config(query)
+        return
+
+    if data.startswith("adcfg_"):
+        action = data[len("adcfg_"):]
+        if action == "toggle_required":
+            set_setting("ad_required", not get_setting("ad_required"))
+        elif action == "every_dec":
+            set_setting("ad_every_n", max(1, get_setting("ad_every_n") - 1))
+        elif action == "every_inc":
+            set_setting("ad_every_n", min(50, get_setting("ad_every_n") + 1))
+        elif action == "gap_dec":
+            set_setting("ad_min_gap", max(0, get_setting("ad_min_gap") - 10))
+        elif action == "gap_inc":
+            set_setting("ad_min_gap", min(600, get_setting("ad_min_gap") + 10))
+        _show_ad_config(query)
         return
 
     # PDF import: fənn seçimi
@@ -2540,7 +2692,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
 
     if data == "admin_add":
         # Wizard başlat
-        admin_wizard_data[user_id] = {'step': 'q_text'}
+        start_wizard(user_id, {'step': 'q_text'})
         try: query.message.delete()
         except: pass
         context.bot.send_message(
@@ -2555,7 +2707,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         return
 
     if data == "admin_edit":
-        admin_wizard_data[user_id] = {'step': 'edit_search'}
+        start_wizard(user_id, {'step': 'edit_search'})
         try: query.message.delete()
         except: pass
         context.bot.send_message(
@@ -2571,7 +2723,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         return
 
     if data == "admin_search":
-        admin_wizard_data[user_id] = {'step': 'search_keyword'}
+        start_wizard(user_id, {'step': 'search_keyword'})
         try: query.message.delete()
         except: pass
         context.bot.send_message(
@@ -2650,7 +2802,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         return
 
     if data == "admin_broadcast":
-        admin_wizard_data[user_id] = {'step': 'broadcast_text'}
+        start_wizard(user_id, {'step': 'broadcast_text'})
         try: query.message.delete()
         except: pass
         context.bot.send_message(
@@ -2671,7 +2823,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         return
 
     if data == "admin_subj_new":
-        admin_wizard_data[user_id] = {'step': 'subj_new_id'}
+        start_wizard(user_id, {'step': 'subj_new_id'})
         query.edit_message_text(
             "📚 *Yeni Fənn Yarat*\n\n"
             "1/3: Fənn üçün qısa ID yazın (məs: `mm`, `adiak`, `tarix`)\n"
@@ -2768,7 +2920,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
         if action == "addtopic":
             if not subj:
                 query.answer("Fənn tapılmadı", show_alert=True); return
-            admin_wizard_data[user_id] = {'step': 'topic_add_name', 'sid': sid}
+            start_wizard(user_id, {'step': 'topic_add_name', 'sid': sid})
             query.edit_message_text(
                 f"➕ *Yeni Mövzu* — _{subj['name']}_\n\n"
                 "Mövzunun adını yazın:\n\n_Ləğv: /cancel_",
@@ -2789,7 +2941,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
             subj2 = get_subject(sid)
             if subj2 and tidx is not None:
                 topic_name = subj2['topics'][tidx]['name'] if tidx < len(subj2.get('topics', [])) else "?"
-                admin_wizard_data[user_id] = {'step': 'topic_rename', 'sid': sid, 'tidx': tidx}
+                start_wizard(user_id, {'step': 'topic_rename', 'sid': sid, 'tidx': tidx})
                 query.edit_message_text(
                     f"✏️ {topic_name} — yeni adı yazın:\n\nLəğv: /cancel",
                     parse_mode=None
@@ -2878,7 +3030,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
             return
 
         if action == "editq":
-            admin_wizard_data[user_id] = {'step': 'edit_q_text', 'qid': qid}
+            start_wizard(user_id, {'step': 'edit_q_text', 'qid': qid})
             context.bot.send_message(
                 chat_id=chat_id,
                 text=f"📝 Sual #{qid}-ün yeni mətnini yazın:\n\n_Ləğv: /cancel_",
@@ -2893,7 +3045,7 @@ def admin_callback_handler(update: Update, context: CallbackContext):
             q = QUESTIONS_BY_ID[qid][1]
             if idx >= len(q['answers']):
                 return
-            admin_wizard_data[user_id] = {'step': 'edit_answer', 'qid': qid, 'letter': letter, 'idx': idx}
+            start_wizard(user_id, {'step': 'edit_answer', 'qid': qid, 'letter': letter, 'idx': idx})
             context.bot.send_message(
                 chat_id=chat_id,
                 text=(
@@ -3879,7 +4031,7 @@ def show_group_result(chat_id, context):
     medals = ["🥇", "🥈", "🥉"] + ["🏅"] * 20
     total = len(sess['questions'])
 
-    lines = [f"🏁 *Qrup Sınağı Bitti*", f"📚 {sess['subject_name']}", "━━━━━━━━━━━━━━━━━"]
+    lines = ["🏁 *Qrup Sınağı Bitti*", f"📚 {sess['subject_name']}", "━━━━━━━━━━━━━━━━━"]
     for i, p in enumerate(sorted_p):
         pct = round(p['score'] / total * 100) if total > 0 else 0
         lines.append(f"{medals[i] if i < len(medals) else '•'} *{p['name']}* — {p['score']}/{total} ({pct}%)")
@@ -4013,25 +4165,43 @@ def main():
     def _cancel_cmd(update, context):
         chat_id = update.effective_chat.id
         user_id = update.effective_user.id
+        cleared = False
         if chat_id in range_pending:
             del range_pending[chat_id]
-            update.message.reply_text("❌ Diapazon ləğv edildi.")
-            return
+            cleared = True
+        if user_id in pdf_import_pending:
+            pdf_import_pending.pop(user_id, None)
+            cleared = True
         if user_id in admin_wizard_data:
             admin_wizard_data.pop(user_id, None)
-            update.message.reply_text("❌ Ləğv edildi.")
-            return
-        update.message.reply_text("ℹ️ Aktiv əməliyyat yoxdur.")
+            cleared = True
+        if cleared:
+            update.message.reply_text("❌ Aktiv əməliyyat ləğv edildi.")
+        else:
+            update.message.reply_text("ℹ️ Aktiv əməliyyat yoxdur.")
     dp.add_handler(CommandHandler("cancel", _cancel_cmd))
 
     # Admin callback-ləri (pattern əsasında)
     dp.add_handler(CallbackQueryHandler(
         admin_callback_handler,
-        pattern=r"^(admin_|adminq_|addq_|pdfimp_)"
+        pattern=r"^(admin_|adminq_|addq_|pdfimp_|adcfg_)"
     ))
 
     # Callback router (əsas)
     dp.add_handler(CallbackQueryHandler(callback_handler))
+
+    # Gündəlik avtomatik backup (JobQueue) — hər gün saat 03:00 (UTC)
+    try:
+        jq = updater.job_queue
+        if jq is not None:
+            from datetime import time as _dtime
+            jq.run_daily(daily_backup_job, time=_dtime(hour=3, minute=0))
+            log.info("Gündəlik backup tapşırığı planlaşdırıldı (03:00 UTC).")
+        else:
+            log.warning("JobQueue mövcud deyil — avtomatik backup deaktiv. "
+                        "requirements.txt-ə python-telegram-bot[job-queue] lazımdır.")
+    except Exception as e:
+        log.error(f"Backup JobQueue qurula bilmədi: {e}")
 
     updater.start_polling(allowed_updates=["message", "callback_query", "chat_member"])
     log.info("Bot işə düşdü.")
